@@ -4,8 +4,10 @@ import {
   MatDialogClose,
   MatDialogActions
 } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -15,7 +17,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatDialogClose,
     MatDialogActions,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule
   ],
   templateUrl: './dialog-add-user.component.html',
   styleUrl: './dialog-add-user.component.scss'

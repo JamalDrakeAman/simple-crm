@@ -22,6 +22,15 @@ mat-toolbar {
     min-height: 56px;
     display: flex;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 85%;
+    height: 100px;
+    object-fit: cover;
 }
 
 mat-toolbar,
@@ -62,5 +71,6 @@ mat-toolbar-row {
 
 .router-container {
     padding-left: 56px;
+    padding-right: 56px;
     padding-top: 16px;
 }

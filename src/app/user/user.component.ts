@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -6,7 +6,13 @@ import { MatDialogModule, } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from '../../models/user.class';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+
+import { AsyncPipe } from '@angular/common';
+import { inject } from '@angular/core';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { doc, onSnapshot } from "firebase/firestore";
+import { RouterLink } from '@angular/router';
 
 
 @Component({
@@ -17,16 +23,40 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    RouterLink
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
-export class UserComponent {
-
-  user = new User();
+export class UserComponent implements OnInit, OnDestroy{
+  firestore = inject(Firestore);
+  itemCollection = collection(this.firestore, 'users');
+  users: User[] = []; 
+  private unsubscribe!: () => void; 
 
   constructor(public dialog: MatDialog) { }
+
+
+  ngOnInit(): void {
+    // onSnapshot für die Sammlung "users"
+    this.unsubscribe = onSnapshot(this.itemCollection, (snapshot) => {
+      this.users = snapshot.docs.map((doc) => {
+        const data = doc.data() as User;
+        data.id = doc.id; // Füge die Dokument-ID hinzu
+        return data;
+      });
+      console.log('Aktuelle Benutzer:', this.users);
+    });
+  }
+
+
+  ngOnDestroy(): void {
+    // Beende das Abonnement, wenn die Komponente zerstört wird
+    if (this.unsubscribe) {
+      this.unsubscribe();
+    }
+  }
 
 
   openDialog() {

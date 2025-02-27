@@ -5,17 +5,16 @@
             <th>Email</th>
             <th>City</th>
         </tr>
-        <tr>
-            <td>Peter</td>
-            <td>peter&#64;mail.com</td>
-            <td>gdfdfhdfgdf</td>
-        </tr>
 
-        <tr>
-            <td>Peter</td>
-            <td>peter&#64;mail.com</td>
-            <td>gdfdfhdfgdf</td>
+        @for (user of users; track $index) {
+        <tr [routerLink]="['/user/' + user.id]">
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.city}}</td>
         </tr>
+        }
+
+
     </table>
 </mat-card>
 

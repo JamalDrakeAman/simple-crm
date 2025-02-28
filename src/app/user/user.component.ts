@@ -30,6 +30,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './user.component.scss'
 })
 export class UserComponent implements OnInit, OnDestroy{
+  
   firestore = inject(Firestore);
   itemCollection = collection(this.firestore, 'users');
   users: User[] = []; 

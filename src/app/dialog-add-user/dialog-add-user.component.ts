@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {
   MatDialogContent,
-  MatDialogClose,
   MatDialogActions,
   MatDialogRef
 } from '@angular/material/dialog';
@@ -22,7 +21,6 @@ import { Firestore, collectionData, collection, addDoc } from '@angular/fire/fir
   standalone: true,
   imports: [
     MatDialogContent,
-    // MatDialogClose,
     MatDialogActions,
     MatInputModule,
     MatFormFieldModule,

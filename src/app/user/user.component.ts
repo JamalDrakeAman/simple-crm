@@ -8,10 +8,12 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 import { User } from '../../models/user.class';
 import { MatCardModule } from '@angular/material/card';
 
-import { AsyncPipe } from '@angular/common';
 import { inject } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { doc, onSnapshot } from "firebase/firestore";
+import { Firestore, collection } from '@angular/fire/firestore';
+import { onSnapshot } from "firebase/firestore";
+import { FirestoreServiceService } from '../firestore-service.service';
+
+
 import { RouterLink } from '@angular/router';
 
 
@@ -29,19 +31,20 @@ import { RouterLink } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
-export class UserComponent implements OnInit, OnDestroy{
-  
-  firestore = inject(Firestore);
-  itemCollection = collection(this.firestore, 'users');
-  users: User[] = []; 
-  private unsubscribe!: () => void; 
+export class UserComponent implements OnInit, OnDestroy {
+
+   userData = inject(FirestoreServiceService);
+
+
+  users: User[] = [];
+  private unsubscribe!: () => void;
 
   constructor(public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
     // onSnapshot für die Sammlung "users"
-    this.unsubscribe = onSnapshot(this.itemCollection, (snapshot) => {
+    this.unsubscribe = onSnapshot(this.userData.itemCollection, (snapshot) => {
       this.users = snapshot.docs.map((doc) => {
         const data = doc.data() as User;
         data.id = doc.id; // Füge die Dokument-ID hinzu

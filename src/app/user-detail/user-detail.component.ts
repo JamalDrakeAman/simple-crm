@@ -2,14 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 
+//Firestore
 import { inject } from '@angular/core';
-import { Firestore, collectionData, collection, addDoc, getDoc, doc } from '@angular/fire/firestore';
+import { getDoc, doc } from '@angular/fire/firestore';
+import { FirestoreServiceService } from '../firestore-service.service';
+
+// Class
 import { User } from '../../models/user.class';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+
+
 
 
 @Component({
@@ -25,12 +32,10 @@ import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-a
 })
 export class UserDetailComponent implements OnInit {
 
-  firestore = inject(Firestore);
-  itemCollection = collection(this.firestore, 'users');
-
   userId: string = '';
   user: User = new User();
 
+  userData = inject(FirestoreServiceService);
 
   constructor(
     private route: ActivatedRoute,
@@ -48,31 +53,29 @@ export class UserDetailComponent implements OnInit {
 
 
   async getUser() {
-    const docRef = doc(this.itemCollection, this.userId);
+    const docRef = doc(this.userData.itemCollection, this.userId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data());
       this.user = new User(docSnap.data());
     } else {
-      // docSnap.data() will be undefined in this case
       console.log("No such document!");
     }
   }
 
 
   editUserDetail() {
-   const dialog = this.dialog.open(DialogEditUserComponent);
-   dialog.componentInstance.user = this.user;
+    const dialog = this.dialog.open(DialogEditUserComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
 
 
   editMenu() {
     const dialog = this.dialog.open(DialogEditAddressComponent);
-    dialog.componentInstance.user = this.user;
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
-
-
-
 
 
 }

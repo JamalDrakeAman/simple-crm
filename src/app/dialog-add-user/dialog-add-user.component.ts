@@ -13,7 +13,8 @@ import { User } from '../../models/user.class';
 import { FormsModule } from '@angular/forms';
 
 import { inject } from '@angular/core';
-import { Firestore, collectionData, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { FirestoreServiceService } from '../firestore-service.service';
 
 
 @Component({
@@ -33,9 +34,7 @@ import { Firestore, collectionData, collection, addDoc } from '@angular/fire/fir
 })
 export class DialogAddUserComponent {
 
-  firestore = inject(Firestore);
-  itemCollection = collection(this.firestore, 'users');
-  // item$ = collectionData<Item>(itemCollection);
+  userData = inject(FirestoreServiceService);
 
   user = new User();
   birthDate: Date = new Date;
@@ -50,7 +49,7 @@ export class DialogAddUserComponent {
 
     this.loading = true;
     try {
-      const docRef = await addDoc(this.itemCollection, this.user.toJSON());
+      const docRef = await addDoc(this.userData.itemCollection, this.user.toJSON());
       console.log('User added with ID:', docRef.id);
       this.dialogRef.close();
     } catch (error) {

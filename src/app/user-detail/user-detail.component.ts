@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 
 //Firestore
 import { inject } from '@angular/core';
-import { getDoc, doc } from '@angular/fire/firestore';
+import { getDoc, doc, onSnapshot } from '@angular/fire/firestore';
 import { FirestoreServiceService } from '../firestore-service.service';
 
 // Class
@@ -30,13 +30,15 @@ import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-a
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
-export class UserDetailComponent implements OnInit {
+export class UserDetailComponent implements OnInit, OnDestroy {
 
   userId: string = '';
   user: User = new User();
-
   userData = inject(FirestoreServiceService);
 
+  private unsubscribe: () => void = () => {}; 
+
+  
   constructor(
     private route: ActivatedRoute,
     public dialog: MatDialog
@@ -52,15 +54,21 @@ export class UserDetailComponent implements OnInit {
   }
 
 
-  async getUser() {
+  getUser() {
     const docRef = doc(this.userData.itemCollection, this.userId);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-      this.user = new User(docSnap.data());
-    } else {
-      console.log("No such document!");
-    }
+    this.unsubscribe = onSnapshot(docRef, (docSnap) => {
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        this.user = new User(docSnap.data()); 
+      } else {
+        console.log("No such document!");
+      }
+    });
+  }
+
+
+  ngOnDestroy() {
+    this.unsubscribe();
   }
 
 

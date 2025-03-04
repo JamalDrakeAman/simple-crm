@@ -11,6 +11,10 @@ import { User } from '../../models/user.class';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
+import { inject } from '@angular/core';
+import { FirestoreServiceService } from '../firestore-service.service';
+import { doc, setDoc } from "firebase/firestore";
+
 @Component({
   selector: 'app-dialog-edit-user',
   standalone: true,
@@ -28,19 +32,35 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 })
 export class DialogEditUserComponent {
 
+  loading = false;
+  user: User;
+  userId: string;
+  // birthDate: Date;
+
+  userData = inject(FirestoreServiceService);
+
+
   constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>) {
     this.user = new User();
     this.userId = '';
   }
 
-  loading = false;
-  user: User;
-  userId:string;
-  // birthDate: Date;
 
-
-  saveUser() {
-
+  async saveUser() {
+    this.loading = true;
+    try {
+      if (!this.userId || '') {
+        throw new Error("Benutzer-ID ist nicht definiert.");
+      }
+      await setDoc(doc(this.userData.db, "users", this.userId), this.user.toJSON());
+      console.log("Benutzer erfolgreich aktualisiert!");
+      this.dialogRef.close();
+    } catch (error) {
+      console.error("Fehler beim Aktualisieren des Benutzers: ", error);
+    } finally {
+      this.loading = false;
+    }
   }
 
+  
 }

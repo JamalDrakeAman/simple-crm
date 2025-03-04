@@ -30,6 +30,10 @@ import { doc, setDoc } from "firebase/firestore";
 })
 export class DialogEditAddressComponent {
 
+  user: User;
+  userId: string;
+  loading = false;
+
   userData = inject(FirestoreServiceService);
 
   constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>) {
@@ -37,36 +41,22 @@ export class DialogEditAddressComponent {
     this.userId = '';
   }
 
-  user: User;
-  userId: string;
-  loading = false;
 
   async saveUser() {
     this.loading = true;
-    console.log(this.userId);
-    console.log(this.user.toJSON());
-    
-
     try {
       if (!this.userId || '') {
         throw new Error("Benutzer-ID ist nicht definiert.");
       }
-
-      // const userRef = doc(this.userData.itemCollection, this.userId);
-
-      // await setDoc(userRef, this.user.toJSON()); 
-
       await setDoc(doc(this.userData.db, "users", this.userId), this.user.toJSON());
       console.log("Benutzer erfolgreich aktualisiert!");
-
-      this.dialogRef.close(); 
+      this.dialogRef.close();
     } catch (error) {
       console.error("Fehler beim Aktualisieren des Benutzers: ", error);
     } finally {
       this.loading = false;
     }
   }
-
 
 
 }

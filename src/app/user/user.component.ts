@@ -33,12 +33,10 @@ import { RouterLink } from '@angular/router';
 })
 export class UserComponent implements OnInit, OnDestroy {
 
-   userData = inject(FirestoreServiceService);
-
-
+  userData = inject(FirestoreServiceService);
   users: User[] = [];
-  private unsubscribe!: () => void;
 
+  private unsubscribe!: () => void;
   constructor(public dialog: MatDialog) { }
 
 

@@ -1,10 +1,32 @@
+@import './shared/scss/color.scss';
+
+
+section {
+    background-color: #171e3d;
+}
+
 mat-toolbar {
     background-color: #6A7FDB;
+    background-color: #171e3d;
     color: whitesmoke;
+    box-shadow: 1px 5px 6px rgba(141, 190, 252, 0.08);
 }
+
 
 .mat-drawer-container {
     height: 100vh;
+    // background-color: $blue-dark-mode;
+    color: whitesmoke;
+}
+
+.dark-mode{
+    background-color: $blue-dark-mode;
+    transition: all ease-in-out 300ms;
+}
+
+.light-mode{
+    background-color: $blue-light-mode;
+    transition: all ease-in-out 300ms;
 }
 
 .menu-icon {
@@ -13,7 +35,10 @@ mat-toolbar {
 
 .sidenav {
     box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 0px 10px rgba(141, 190, 252, 0.08);
     width: 300px;
+    background-color: unset;
+    color: whitesmoke;
 }
 
 .logo-container {

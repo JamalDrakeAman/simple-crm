@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { inject } from '@angular/core';
-import { FirestoreServiceService } from '../firestore-service.service';
+import { FirestoreServiceService } from '../shared/service/firestore-service.service';
 import { doc, setDoc } from "firebase/firestore";
 
 @Component({

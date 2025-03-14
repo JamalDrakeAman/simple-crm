@@ -11,7 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { inject } from '@angular/core';
 import { Firestore, collection } from '@angular/fire/firestore';
 import { onSnapshot } from "firebase/firestore";
-import { FirestoreServiceService } from '../firestore-service.service';
+import { FirestoreServiceService } from '../shared/service/firestore-service.service';
 
 
 import { RouterLink } from '@angular/router';

@@ -1,26 +1,34 @@
-<mat-card appearance="outlined">
-    <table class="user-table">
-        <tr>
-            <th>Name</th>
-            <th>User Roles</th>
-            <th>Email</th>
-            <th>City</th>
-        </tr>
-
-        @for (user of users; track $index) {
-        <tr [routerLink]="['/user/' + user.id]">
-            <td>{{user.firstName}} {{user.lastName}}</td>
-            <td>Admin</td>
-            <td>{{user.email}}</td>
-            <td>{{user.city}}</td>
-        </tr>
-        }
+<section>
 
 
-    </table>
-</mat-card>
+
+    <mat-card appearance="outlined">
+        <table class="user-table">
+            <tr>
+                <th>Name</th>
+                <th>User Roles</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+
+            @for (user of users; track $index) {
+            <tr [routerLink]="['/user/' + user.id]">
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>Admin</td>
+                <td>{{user.email}}</td>
+                <td>{{user.city}}</td>
+            </tr>
+            }
 
 
-<button (click)="openDialog()" class="add-user-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
-    <mat-icon>add</mat-icon>
-</button>
+        </table>
+    </mat-card>
+
+
+    <button (click)="openDialog()" class="add-user-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
+        <mat-icon>add</mat-icon>
+    </button>
+
+
+
+</section>

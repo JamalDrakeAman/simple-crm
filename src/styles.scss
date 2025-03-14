@@ -1,26 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
-.mr-16{
+.mr-16 {
     margin-right: 16px;
 }
 
-.full-width{
+.full-width {
     width: 100%;
 }
 
-.mt-32{
+.mt-32 {
     margin-top: 32px;
 }
 
-.dialog-container{
+.dialog-container {
     position: relative;
     padding: 24px;
 
-    mat-progress-bar{
+    mat-progress-bar {
         position: absolute;
         left: 0;
         right: 0;

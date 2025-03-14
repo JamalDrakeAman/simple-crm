@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 //Firestore
 import { inject } from '@angular/core';
 import { getDoc, doc, onSnapshot } from '@angular/fire/firestore';
-import { FirestoreServiceService } from '../firestore-service.service';
+import { FirestoreServiceService } from '../shared/service/firestore-service.service';
 
 // Class
 import { User } from '../../models/user.class';

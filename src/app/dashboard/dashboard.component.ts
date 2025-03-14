@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { FirestoreServiceService } from '../firestore-service.service';
+import { FirestoreServiceService } from '../shared/service/firestore-service.service';
 import { doc, onSnapshot } from "firebase/firestore";
 import { User } from '@angular/fire/auth';
 

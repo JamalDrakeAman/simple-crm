@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { inject } from '@angular/core';
-import { FirestoreServiceService } from '../firestore-service.service';
+import { FirestoreServiceService } from '../shared/service/firestore-service.service';
 import { doc, setDoc } from "firebase/firestore";
 
 @Component({

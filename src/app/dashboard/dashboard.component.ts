@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit{
   }
 
   ngOnInit(): void {
-  this.unsub = onSnapshot(this.userData.itemCollection, (snapshot) => {
+  this.unsub = onSnapshot(this.userData.usersCollection, (snapshot) => {
       this.users = snapshot.docs.map((doc) => {
         const data = doc.data() as User;
         // data.id = doc.id; // Füge die Dokument-ID hinzu

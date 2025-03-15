@@ -55,7 +55,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
 
   getUser() {
-    const docRef = doc(this.userData.itemCollection, this.userId);
+    const docRef = doc(this.userData.usersCollection, this.userId);
     this.unsubscribe = onSnapshot(docRef, (docSnap) => {
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());

@@ -9,7 +9,6 @@ import { User } from '../../models/user.class';
 import { MatCardModule } from '@angular/material/card';
 
 import { inject } from '@angular/core';
-import { Firestore, collection } from '@angular/fire/firestore';
 import { onSnapshot } from "firebase/firestore";
 import { FirestoreServiceService } from '../shared/service/firestore-service.service';
 
@@ -42,7 +41,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // onSnapshot für die Sammlung "users"
-    this.unsubscribe = onSnapshot(this.userData.itemCollection, (snapshot) => {
+    this.unsubscribe = onSnapshot(this.userData.usersCollection, (snapshot) => {
       this.users = snapshot.docs.map((doc) => {
         const data = doc.data() as User;
         data.id = doc.id; // Füge die Dokument-ID hinzu

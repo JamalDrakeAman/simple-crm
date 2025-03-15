@@ -9,7 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
-import { User } from '../../models/user.class';
+import { Customer } from '../../models/customer.class';
 import { FormsModule } from '@angular/forms';
 
 import { inject } from '@angular/core';
@@ -36,7 +36,7 @@ export class DialogAddCustomerComponent {
 
     userData = inject(FirestoreServiceService);
   
-    user = new User();
+    customer = new Customer();
     birthDate: Date = new Date;
     loading = false;
   
@@ -44,12 +44,12 @@ export class DialogAddCustomerComponent {
   
     async saveUser() {
       // Geburtsdatum in Timestamp umwandeln
-      this.user.birthDate = this.birthDate.getTime();
-      console.log('Current user is', this.user);
+      this.customer.birthDate = this.birthDate.getTime();
+      console.log('Current user is', this.customer);
   
       this.loading = true;
       try {
-        const docRef = await addDoc(this.userData.customersCollection, this.user.toJSON());
+        const docRef = await addDoc(this.userData.customersCollection, this.customer.toJSON());
         console.log('User added with ID:', docRef.id);
         this.dialogRef.close();
       } catch (error) {

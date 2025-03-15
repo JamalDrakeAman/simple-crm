@@ -6,7 +6,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule, } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-customer.component';
-import { User } from '../../models/user.class';
+import { Customer } from '../../models/customer.class';
 import { MatCardModule } from '@angular/material/card';
 
 import { inject } from '@angular/core';
@@ -35,7 +35,7 @@ export class CustomersComponent implements OnInit{
 
 
   userData = inject(FirestoreServiceService);
-  customers: User[] = [];
+  customers: Customer[] = [];
 
   private unsubscribe!: () => void;
   constructor(public dialog: MatDialog) { }
@@ -45,7 +45,7 @@ export class CustomersComponent implements OnInit{
     // onSnapshot für die Sammlung "users"
     this.unsubscribe = onSnapshot(this.userData.customersCollection, (snapshot) => {
       this.customers = snapshot.docs.map((doc) => {
-        const data = doc.data() as User;
+        const data = doc.data() as Customer;
         data.id = doc.id; // Füge die Dokument-ID hinzu
         return data;
       });

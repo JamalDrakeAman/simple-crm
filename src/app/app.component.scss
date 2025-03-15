@@ -33,11 +33,20 @@ mat-toolbar {
 }
 
 .sidenav {
-    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
-    box-shadow: 4px 0px 10px rgba(141, 190, 252, 0.08);
+    // box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+    // box-shadow: 4px 0px 10px rgba(141, 190, 252, 0.08);
     width: 300px;
     background-color: unset;
     color: whitesmoke;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-darkMode{
+    box-shadow: 4px 0px 10px rgba(141, 190, 252, 0.08);
+}
+
+.sidebar-lightMode{
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo-container {

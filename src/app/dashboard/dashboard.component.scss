@@ -4,6 +4,8 @@ section {
     width: 100%;
     height: 100%;
     gap: 20px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -60,4 +62,14 @@ mat-card {
 
 .countNumber {
     font-size: 60px;
+}
+
+.clock-container{
+    display: flex;
+    border: solid 1px black;
+}
+
+.clockTime{
+    font-size: 60px;
+    transition: all ease-in-out 500ms;
 }

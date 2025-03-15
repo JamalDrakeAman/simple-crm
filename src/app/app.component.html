@@ -1,6 +1,6 @@
 <section>
   <mat-drawer-container [ngClass]="{'dark-mode': isDarkMode, 'light-mode': !isDarkMode}" class="mat-drawer-container" autosize>
-    <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
+    <mat-drawer #drawer class="sidenav" [ngClass]="{'sidebar-darkMode': isDarkMode, 'sidebar-lightMode': !isDarkMode}" [opened]="true" mode="side">
       <div class="logo-container">
         <img class="logo" src="assets/img/simple-crm.png" alt="">
       </div>

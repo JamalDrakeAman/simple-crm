@@ -28,6 +28,8 @@ export class DashboardComponent implements OnInit {
 
   isDarkMode = false;
 
+  clock = '00 : 00 : 00';
+
 
   constructor() {
     console.log(this.userData);
@@ -35,6 +37,9 @@ export class DashboardComponent implements OnInit {
     this.isDarkMode = savedMode === 'true';
     
     console.log('darkMode',this.isDarkMode);
+
+    this.updateClock(); 
+    setInterval(() => this.updateClock(), 1000); 
     
   }
 
@@ -72,8 +77,18 @@ export class DashboardComponent implements OnInit {
     if (this.unsubCust) {
       this.unsubCust();
     }
-
   }
 
+
+  updateClock(){
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const timeString = `${hours} : ${minutes} : ${seconds}`
+    this.clock = timeString;
+  }
+
+  
 
 }

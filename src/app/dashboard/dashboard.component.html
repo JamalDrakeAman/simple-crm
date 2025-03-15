@@ -2,13 +2,21 @@
 
   <h1>Welcome User</h1>
 
+  <div class="users-overview-row">
+
+    <div class="clock-container">
+      <div class="clockTime">{{clock}}</div>
+
+    </div>
+
+  </div>
+
 
 
   <div class="users-overview-row">
     <h1>Total Users</h1>
-
     <div class="card-container">
-
+      
       <mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
         <h2>Users</h2>
         <mat-card-content class="countNumber">
@@ -33,7 +41,6 @@
       </mat-card>
 
     </div>
-
   </div>
 
 

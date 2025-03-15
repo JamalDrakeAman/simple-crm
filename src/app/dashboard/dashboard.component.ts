@@ -6,6 +6,7 @@ import { User } from '@angular/fire/auth';
 import { Customer } from '../../models/customer.class';
 import { CommonModule } from '@angular/common';
 import { ClockComponent } from "./clock/clock.component";
+import { UserOverwiewCardComponent } from "./user-overwiew-card/user-overwiew-card.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,8 @@ import { ClockComponent } from "./clock/clock.component";
   imports: [
     MatCardModule,
     CommonModule,
-    ClockComponent
+    ClockComponent,
+    UserOverwiewCardComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -37,11 +39,7 @@ export class DashboardComponent implements OnInit {
     console.log(this.userData);
     const savedMode = localStorage.getItem('darkMode');
     this.isDarkMode = savedMode === 'true';
-    
     console.log('darkMode',this.isDarkMode);
-
-  
-    
   }
 
 

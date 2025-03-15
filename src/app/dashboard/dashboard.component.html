@@ -8,37 +8,15 @@
 
   </div>
 
-
-
   <div class="users-overview-row">
     <h1>Total Users</h1>
     <div class="card-container">
 
-      <mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
-        <h2>Users</h2>
-        <mat-card-content class="countNumber">
-          {{users.length}}
-        </mat-card-content>
-      </mat-card>
-
-
-      <mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
-        <h2>Customers</h2>
-        <mat-card-content class="countNumber">
-          {{customer.length}}
-        </mat-card-content>
-      </mat-card>
-
-
-      <mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
-        <h2>Total</h2>
-        <mat-card-content class="countNumber">
-          {{users.length + customer.length}}
-        </mat-card-content>
-      </mat-card>
+      <app-user-overwiew-card [title]="'Users'" [count]="users.length"></app-user-overwiew-card>
+      <app-user-overwiew-card [title]="'Customers'" [count]="customer.length"></app-user-overwiew-card>
+      <app-user-overwiew-card [title]="'Total'" [count]="users.length + customer.length"></app-user-overwiew-card>
 
     </div>
   </div>
-
 
 </section>

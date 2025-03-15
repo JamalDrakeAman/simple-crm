@@ -1,0 +1,32 @@
+mat-card {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all ease-in-out 100ms;
+    border: none;
+    padding: 10px;
+}
+
+.card-darkMode {
+    background-color: rgba(141, 190, 252, 0.5);
+    color: whitesmoke;
+    &:hover {
+        background-color: rgba(141, 190, 252, 0.8);
+        scale: 1.05;
+    }
+}
+
+.card-lightMode {
+    background-color: rgba(23, 30, 61, 0.5);
+    color: whitesmoke;
+    &:hover {
+        background-color: rgba(23, 30, 61, 0.8);
+        scale: 1.05;
+    }
+}
+
+.countNumber {
+    font-size: 60px;
+}

@@ -17,12 +17,12 @@ mat-toolbar {
     color: whitesmoke;
 }
 
-.dark-mode{
+.dark-mode {
     background-color: $blue-dark-mode;
     transition: all ease-in-out 300ms;
 }
 
-.light-mode{
+.light-mode {
     background-color: $blue-light-mode;
     transition: all ease-in-out 300ms;
     color: black;

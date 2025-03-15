@@ -2,35 +2,38 @@
 
   <h1>Welcome User</h1>
 
-  <h1>Total Users</h1>
+
 
   <div class="users-overview-row">
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Users</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        {{users.length}}
-      </mat-card-content>
-    </mat-card>
+    <h1>Total Users</h1>
 
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Customers</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        {{users.length}}
-      </mat-card-content>
-    </mat-card>
+    <div class="card-container">
 
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Total</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        {{users.length}}
-      </mat-card-content>
-    </mat-card>
+      <mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
+        <h2>Users</h2>
+        <mat-card-content class="countNumber">
+          {{users.length}}
+        </mat-card-content>
+      </mat-card>
+
+
+      <mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
+        <h2>Customers</h2>
+        <mat-card-content class="countNumber">
+          {{customer.length}}
+        </mat-card-content>
+      </mat-card>
+
+
+      <mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
+        <h2>Total</h2>
+        <mat-card-content class="countNumber">
+          {{users.length + customer.length}}
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
   </div>
 
 

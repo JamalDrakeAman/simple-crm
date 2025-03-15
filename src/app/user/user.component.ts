@@ -35,8 +35,16 @@ export class UserComponent implements OnInit, OnDestroy {
   userData = inject(FirestoreServiceService);
   users: User[] = [];
 
+  isDarkMode = false;
+
   private unsubscribe!: () => void;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { 
+
+    const savedMode = localStorage.getItem('darkMode');
+    this.isDarkMode = savedMode === 'true';
+    
+    console.log('darkMode',this.isDarkMode);
+  }
 
 
   ngOnInit(): void {

@@ -6,7 +6,6 @@
         <table class="user-table">
             <tr>
                 <th>Name</th>
-                <th>User Roles</th>
                 <th>Email</th>
                 <th>City</th>
             </tr>
@@ -14,7 +13,6 @@
             @for (cust of customers; track $index) {
             <tr [routerLink]="['/user/' + cust.id]">
                 <td>{{cust.firstName}} {{cust.lastName}}</td>
-                <td>Admin</td>
                 <td>{{cust.email}}</td>
                 <td>{{cust.city}}</td>
             </tr>

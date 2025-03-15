@@ -14,7 +14,7 @@
             @for (user of users; track $index) {
             <tr [routerLink]="['/user/' + user.id]">
                 <td>{{user.firstName}} {{user.lastName}}</td>
-                <td>Admin</td>
+                <td class="role-td">{{user.userRole.charAt(0).toUpperCase() + user.userRole.slice(1).toLowerCase()}}  <span class="dot {{user.userRole}}"></span></td>
                 <td>{{user.email}}</td>
                 <td>{{user.city}}</td>
             </tr>

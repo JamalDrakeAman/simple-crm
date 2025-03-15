@@ -5,10 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 //Firestore
 import { inject } from '@angular/core';
 import { getDoc, doc, onSnapshot } from '@angular/fire/firestore';
-import { FirestoreServiceService } from '../shared/service/firestore-service.service';
+import { FirestoreServiceService } from '../../shared/service/firestore-service.service';
 
 // Class
-import { User } from '../../models/user.class';
+import { User } from '../../../models/user.class';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -36,9 +36,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   user: User = new User();
   userData = inject(FirestoreServiceService);
 
-  private unsubscribe: () => void = () => {}; 
+  private unsubscribe: () => void = () => { };
 
-  
+
   constructor(
     private route: ActivatedRoute,
     public dialog: MatDialog
@@ -59,7 +59,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     this.unsubscribe = onSnapshot(docRef, (docSnap) => {
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
-        this.user = new User(docSnap.data()); 
+        this.user = new User(docSnap.data());
       } else {
         console.log("No such document!");
       }

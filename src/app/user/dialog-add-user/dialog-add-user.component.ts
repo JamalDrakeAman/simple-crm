@@ -9,12 +9,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
-import { User } from '../../models/user.class';
+import { User } from '../../../models/user.class';
 import { FormsModule } from '@angular/forms';
 
 import { inject } from '@angular/core';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-import { FirestoreServiceService } from '../shared/service/firestore-service.service';
+import { FirestoreServiceService } from '../../shared/service/firestore-service.service';
 
 
 @Component({

@@ -41,11 +41,11 @@ mat-toolbar {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.sidebar-darkMode{
+.sidebar-darkMode {
     box-shadow: 4px 0px 10px rgba(141, 190, 252, 0.08);
 }
 
-.sidebar-lightMode{
+.sidebar-lightMode {
     box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -70,10 +70,18 @@ mat-toolbar,
 mat-toolbar-row {
     min-height: 56px;
     height: 56px;
+    display: flex;
+    justify-content: space-between;
 
     mat-icon {
         margin-right: 16px;
     }
+}
+
+.sidebar-btn-box {
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
 
 .menu-items {

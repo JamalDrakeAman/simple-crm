@@ -1,0 +1,9 @@
+.clock-container{
+    display: flex;
+    border: solid 1px black;
+}
+
+.clockTime{
+    font-size: 60px;
+    transition: all ease-in-out 500ms;
+}

@@ -5,14 +5,16 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { User } from '@angular/fire/auth';
 import { Customer } from '../../models/customer.class';
 import { CommonModule } from '@angular/common';
+import { ClockComponent } from "./clock/clock.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
     MatCardModule,
-    CommonModule
-  ],
+    CommonModule,
+    ClockComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -28,7 +30,7 @@ export class DashboardComponent implements OnInit {
 
   isDarkMode = false;
 
-  clock = '00 : 00 : 00';
+  
 
 
   constructor() {
@@ -38,8 +40,7 @@ export class DashboardComponent implements OnInit {
     
     console.log('darkMode',this.isDarkMode);
 
-    this.updateClock(); 
-    setInterval(() => this.updateClock(), 1000); 
+  
     
   }
 
@@ -80,15 +81,5 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  updateClock(){
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    const timeString = `${hours} : ${minutes} : ${seconds}`
-    this.clock = timeString;
-  }
-
-  
 
 }

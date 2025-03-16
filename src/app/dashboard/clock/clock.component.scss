@@ -1,14 +1,47 @@
 @import './../../shared/scss/mixins.scss';
 
 .clock-container {
+    position: relative;
     @include flex($align: center, $justify: center);
     border-radius: 20px;
     background-color: rgba(23, 30, 61, 0.5);
     height: 100%;
     width: 100%;
+    overflow: hidden;
+}
+
+.clock-header{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: rgba(23, 30, 61, 0.5);
+}
+
+.clock-footer{
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
 }
 
 .clockTime {
-    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    font-size: 70px;
     transition: all ease-in-out 500ms;
 }
+
+// .hour{
+//     font-size: 70px;
+// }
+
+// .minute{
+//     font-size: 70px;
+// }
+
+// .second{
+//     font-size: 50px;
+// }

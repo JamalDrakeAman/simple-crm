@@ -1,4 +1,4 @@
-<section>
+<section [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
 
 
     @if (weatherData) {

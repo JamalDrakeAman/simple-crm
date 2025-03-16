@@ -1,4 +1,4 @@
-<mat-card [ngClass]="{'card-darkMode': isDarkMode, 'card-lightMode': !isDarkMode}" appearance="outlined">
+<mat-card  appearance="outlined" [ngClass]="theme.darkMode() ? 'card-lightMode' : 'card-darkMode'">
     <h2>{{title}}</h2>
     <mat-card-content class="countNumber">
         {{count}}

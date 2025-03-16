@@ -1,7 +1,7 @@
 <section>
-  <mat-drawer-container [ngClass]="{'dark-mode': isDarkMode, 'light-mode': !isDarkMode}" class="mat-drawer-container"
+  <mat-drawer-container [ngClass]="theme.darkMode() ? 'light-mode' : 'dark-mode'" class="mat-drawer-container"
     autosize>
-    <mat-drawer #drawer class="sidenav" [ngClass]="{'sidebar-darkMode': isDarkMode, 'sidebar-lightMode': !isDarkMode}"
+    <mat-drawer #drawer class="sidenav" [ngClass]="theme.darkMode() ? 'sidebar-lightMode' : 'sidebar-darkMode'" 
       [opened]="true" mode="side">
       <div class="logo-container">
         <img class="logo" src="assets/img/simple-crm.png" alt="">
@@ -12,6 +12,7 @@
         <li routerLink="/user"> <mat-icon>person</mat-icon>User</li>
         <li routerLink="/customers"> <mat-icon>person</mat-icon>Customers</li>
         <li routerLink="/calendar"> <mat-icon>calendar_month</mat-icon>Calendar</li>
+        <li routerLink="/todos"> <mat-icon>checklist</mat-icon>Todo List</li>
         <li routerLink="/notes"> <mat-icon>notes</mat-icon>Notes</li>
       </ul>
 
@@ -26,8 +27,8 @@
             <span class="mr-16">Simple CRM</span>
           </div>
 
-          <mat-slide-toggle class="dark-mode-toggle" [checked]="isDarkMode" (change)="toggleDarkMode($event.checked)">
-            {{ isDarkMode ? '🌙 Dark Mode' : '☀️ Light Mode' }}
+          <mat-slide-toggle class="dark-mode-toggle" [checked]="theme.darkMode()" (change)="theme.toggle()">
+            {{ theme.darkMode() ? '🌙 Dark Mode' : '☀️ Light Mode' }}
           </mat-slide-toggle>
 
         </mat-toolbar-row>

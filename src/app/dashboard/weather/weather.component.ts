@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../../shared/weather.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { WeatherService } from '../../shared/services/weather.service';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../shared/services/theme.service';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './weather.component.scss'
 })
 export class WeatherComponent implements OnInit {
+
+  theme = inject(ThemeService);
 
 
   weatherData: any;

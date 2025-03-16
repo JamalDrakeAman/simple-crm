@@ -1,5 +1,5 @@
-<section>
-    <div class="date-header"> <span>{{dateParts.month}}</span> <span>{{dateParts.year}}</span> </div>
+<section [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+    <div  class="date-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"> <span>{{dateParts.month}}</span> <span>{{dateParts.year}}</span> </div>
 
     <p class="date-day">{{dateParts.day}}</p>
 

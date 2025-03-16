@@ -4,7 +4,7 @@
     position: relative;
     @include flex($align: center, $justify: center);
     border-radius: 20px;
-    background-color: rgba(23, 30, 61, 0.5);
+    // background-color: rgba(23, 30, 61, 0.5);
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -18,7 +18,7 @@
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-    background-color: rgba(23, 30, 61, 0.5);
+    // background-color: rgba(23, 30, 61, 0.5);
 }
 
 .clock-footer{
@@ -34,14 +34,10 @@
     transition: all ease-in-out 500ms;
 }
 
-// .hour{
-//     font-size: 70px;
-// }
+.dark-mode {
+    background-color: rgba(23, 30, 61, 0.5);
+}
 
-// .minute{
-//     font-size: 70px;
-// }
-
-// .second{
-//     font-size: 50px;
-// }
+.light-mode {
+    background-color: rgba(141, 190, 252, 0.5);
+}

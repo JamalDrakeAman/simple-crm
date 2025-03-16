@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { ThemeService } from '../../shared/services/theme.service';
 
 @Component({
   selector: 'app-user-overwiew-card',
@@ -14,17 +15,16 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class UserOverwiewCardComponent {
 
-  isDarkMode = false;
+  // isDarkMode = false;
+
+  theme = inject(ThemeService);
 
   @Input() title = '';
 
   @Input() count = 0;
 
   constructor() {
-    const savedMode = localStorage.getItem('darkMode');
-    this.isDarkMode = savedMode === 'true';
 
-    console.log('darkMode', this.isDarkMode);
   }
 
 }

@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 
 import { inject } from '@angular/core';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-import { FirestoreServiceService } from '../../shared/service/firestore-service.service';
+import { FirestoreServiceService } from '../../shared/services/firestore-service.service';
 
 
 @Component({

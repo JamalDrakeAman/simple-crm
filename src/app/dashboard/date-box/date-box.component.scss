@@ -1,4 +1,4 @@
-section{
+section {
     position: relative;
     display: flex;
     justify-content: center;
@@ -10,7 +10,15 @@ section{
     overflow: hidden;
 }
 
-.date-header{
+.dark-mode {
+    background-color: rgba(23, 30, 61, 0.5);
+}
+
+.light-mode {
+    background-color: rgba(141, 190, 252, 0.5);
+}
+
+.date-header {
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -18,16 +26,16 @@ section{
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-    background-color: rgba(23, 30, 61, 0.5);
+    // background-color: rgba(23, 30, 61, 0.5);
 }
 
-.date-day{
+.date-day {
     position: absolute;
     top: 50%;
     font-size: 70px;
 }
 
-.date-footer{
+.date-footer {
     position: absolute;
     bottom: 0;
     padding: 20px;

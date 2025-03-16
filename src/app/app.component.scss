@@ -1,4 +1,5 @@
 @import './shared/scss/variables.scss';
+@import './shared/scss/mixins.scss';
 
 
 section {
@@ -53,11 +54,7 @@ mat-toolbar {
     border-bottom: solid 1px rgba(0, 0, 0, 0.04);
     padding: 0 16px;
     min-height: 56px;
-    display: flex;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex();
 }
 
 .logo {
@@ -79,9 +76,7 @@ mat-toolbar-row {
 }
 
 .sidebar-btn-box {
-    display: flex;
-    justify-items: center;
-    align-items: center;
+    @include flex($direction: row, $align: center, $justify: center);
 }
 
 .menu-items {

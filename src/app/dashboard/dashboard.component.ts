@@ -7,6 +7,7 @@ import { Customer } from '../../models/customer.class';
 import { CommonModule } from '@angular/common';
 import { ClockComponent } from "./clock/clock.component";
 import { UserOverwiewCardComponent } from "./user-overwiew-card/user-overwiew-card.component";
+import { WeatherComponent } from "./weather/weather.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,8 @@ import { UserOverwiewCardComponent } from "./user-overwiew-card/user-overwiew-ca
     MatCardModule,
     CommonModule,
     ClockComponent,
-    UserOverwiewCardComponent
+    UserOverwiewCardComponent,
+    WeatherComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

@@ -1,5 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'; 
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes), provideAnimationsAsync(),
     provideNativeDateAdapter(),
+    provideHttpClient(withInterceptorsFromDi()),
     provideFirebaseApp(() => initializeApp({
       "projectId": "simple-crm-ff53e",
       "appId": "1:722198912187:web:0b94ca8c7a8d9eade49d9e",

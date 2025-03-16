@@ -1,9 +1,14 @@
-.clock-container{
-    display: flex;
-    border: solid 1px black;
+@import './../../shared/scss/mixins.scss';
+
+.clock-container {
+    @include flex($align: center, $justify: center);
+    border-radius: 20px;
+    background-color: rgba(23, 30, 61, 0.5);
+    height: 100%;
+    width: 100%;
 }
 
-.clockTime{
+.clockTime {
     font-size: 60px;
     transition: all ease-in-out 500ms;
 }

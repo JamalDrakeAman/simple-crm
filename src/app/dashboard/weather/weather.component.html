@@ -1,3 +1,19 @@
 <section>
-    
+
+
+    @if (weatherData) {
+    <div class="weather-widget">
+        <h2>Aktuelles Wetter in {{ weatherData.name }}</h2>
+        <p>Temperatur: {{ weatherData.main.temp }}°C</p>
+        <p>Wetter: {{ weatherData.weather[0].description }}</p>
+    </div>
+    }
+
+    @if (!weatherData) {
+    <div>
+        Lade Wetterdaten...
+    </div>
+    }
+
+
 </section>

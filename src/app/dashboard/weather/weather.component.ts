@@ -3,9 +3,6 @@ import { WeatherService } from '../../shared/weather.service';
 import { CommonModule } from '@angular/common';
 
 
-
-
-
 @Component({
   selector: 'app-weather',
   standalone: true,
@@ -21,7 +18,7 @@ export class WeatherComponent implements OnInit {
   weatherData: any;
   city = 'Berlin,DE'; // Stadtname
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
     this.getWeather();

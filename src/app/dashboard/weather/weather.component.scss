@@ -1,6 +1,23 @@
 section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
     background-color: rgba(23, 30, 61, 0.5);
     height: 100%;
     width: 100%;
+}
+
+.weather-widget {
+    border-radius: 8px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.weather-widget h2 {
+    margin-bottom: 10px;
+}
+
+.weather-widget p {
+    margin: 5px 0;
 }

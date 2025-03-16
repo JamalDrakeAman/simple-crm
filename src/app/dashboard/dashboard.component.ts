@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { ClockComponent } from "./clock/clock.component";
 import { UserOverwiewCardComponent } from "./user-overwiew-card/user-overwiew-card.component";
 import { WeatherComponent } from "./weather/weather.component";
+import { DateBoxComponent } from "./date-box/date-box.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,8 @@ import { WeatherComponent } from "./weather/weather.component";
     CommonModule,
     ClockComponent,
     UserOverwiewCardComponent,
-    WeatherComponent
+    WeatherComponent,
+    DateBoxComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

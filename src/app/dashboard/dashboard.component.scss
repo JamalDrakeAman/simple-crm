@@ -13,7 +13,7 @@ section {
 
 .weather-time-overview-row{
     display: grid;
-    grid-template-columns: 1fr 2fr; /* 3 Spalten */
+    grid-template-columns:1fr 1fr 2fr; /* 3 Spalten */
     height: 250px;
     gap: 10px;
     border: solid 5px rgba(255, 255, 255, 0.2);

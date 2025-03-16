@@ -5,8 +5,43 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    // font-family: ;
 }
+
+*{
+   font-family: 'Poppins';
+   font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/assets/fonts/Poppins/Poppins-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/assets/fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+
+
 
 
 .mr-16 {

@@ -8,14 +8,26 @@ section {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    cursor: pointer;
+    transition: all ease-in-out 100ms;
 }
 
 .dark-mode {
     background-color: rgba(23, 30, 61, 0.5);
+
+    &:hover {
+        background-color: rgba(23, 30, 61, 0.8);
+        scale: 1.05;
+    }
 }
 
 .light-mode {
     background-color: rgba(141, 190, 252, 0.5);
+
+    &:hover {
+        background-color: rgba(141, 190, 252, 0.8);
+        scale: 1.05;
+    }
 }
 
 .date-header {
@@ -26,7 +38,6 @@ section {
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-    // background-color: rgba(23, 30, 61, 0.5);
 }
 
 .date-day {

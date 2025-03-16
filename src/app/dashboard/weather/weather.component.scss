@@ -6,6 +6,8 @@ section {
     background-color: rgba(23, 30, 61, 0.5);
     height: 100%;
     width: 100%;
+    cursor: pointer;
+    transition: all ease-in-out 100ms;
 }
 
 .weather-widget {
@@ -24,8 +26,18 @@ section {
 
 .dark-mode {
     background-color: rgba(23, 30, 61, 0.5);
+
+    &:hover {
+        background-color: rgba(23, 30, 61, 0.8);
+        scale: 1.05;
+    }
 }
 
 .light-mode {
     background-color: rgba(141, 190, 252, 0.5);
+
+    &:hover {
+        background-color: rgba(141, 190, 252, 0.8);
+        scale: 1.05;
+    }
 }

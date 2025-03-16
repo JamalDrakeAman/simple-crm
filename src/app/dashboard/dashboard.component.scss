@@ -11,9 +11,10 @@ section {
 }
 
 
-.weather-time-overview-row{
+.weather-time-overview-row {
     display: grid;
-    grid-template-columns:1fr 1fr 2fr; /* 3 Spalten */
+    grid-template-columns: 1fr 1fr 2fr;
+    /* 3 Spalten */
     height: 250px;
     gap: 10px;
     border: solid 5px rgba(255, 255, 255, 0.2);
@@ -23,6 +24,16 @@ section {
 
 .users-overview-row {
     @include flex($direction: column, $justify: space-between);
+    height: 250px;
+    gap: 10px;
+    border: solid 5px rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.todos-notes-overview-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 250px;
     gap: 10px;
     border: solid 5px rgba(255, 255, 255, 0.2);

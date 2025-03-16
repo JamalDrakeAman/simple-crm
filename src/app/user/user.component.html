@@ -3,7 +3,7 @@
 
 
     <mat-card appearance="outlined">
-        <table class="user-table">
+        <table [ngClass]="{'table-darkeMode': isDarkMode,'table-lightMode': !isDarkMode }" class="user-table">
             <tr>
                 <th>Name</th>
                 <th>User Roles</th>

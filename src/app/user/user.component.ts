@@ -14,6 +14,7 @@ import { FirestoreServiceService } from '../shared/service/firestore-service.ser
 
 
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -25,7 +26,8 @@ import { RouterLink } from '@angular/router';
     MatTooltipModule,
     MatDialogModule,
     MatCardModule,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
@@ -42,7 +44,6 @@ export class UserComponent implements OnInit, OnDestroy {
 
     const savedMode = localStorage.getItem('darkMode');
     this.isDarkMode = savedMode === 'true';
-    
     console.log('darkMode',this.isDarkMode);
   }
 

@@ -9,12 +9,30 @@ mat-card{
     overflow: hidden;
 }
 
+.table-darkeMode {
+    background-color: rgba(141, 190, 252, 0.5);
+    tr{
+        &:hover{
+            background-color: rgba(141, 190, 252, 0.7);
+        }
+    }
+}
+
+.table-lightMode {
+    background-color: rgba(23, 30, 61, 0.5);
+    tr{
+        &:hover{
+            background-color: rgba(23, 30, 61, 0.7);
+        }
+    }
+}
+
 .user-table {
     width: 100%;
     padding: 10px 20px;
     border-collapse: collapse;
-    background-color: rgba(141, 190, 252, 0.5);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: whitesmoke;
 
     th {
         color: rgba(0, 0, 0, 0.4);
@@ -52,10 +70,6 @@ mat-card{
             &:first-child {
                 padding-left: 16px;
             }
-        }
-
-        &:hover {
-            background-color: rgba(141, 190, 252, 0.7);
         }
 
     }

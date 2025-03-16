@@ -9,12 +9,31 @@ mat-card {
     overflow: hidden;
 }
 
+.table-darkeMode {
+    background-color: rgba(141, 190, 252, 0.5);
+
+    tr{
+        &:hover{
+            background-color: rgba(141, 190, 252, 0.7);
+        }
+    }
+}
+
+.table-lightMode {
+    background-color: rgba(23, 30, 61, 0.5);
+
+    tr{
+        &:hover{
+            background-color: rgba(23, 30, 61, 0.7);
+        }
+    }
+}
+
 .user-table {
     width: 100%;
     padding: 10px 20px;
     border-collapse: collapse;
-    background-color: rgba(141, 190, 252, 0.5);
-    // color: black;
+    color: whitesmoke;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
     th {
@@ -56,24 +75,19 @@ mat-card {
             }
         }
 
-        &:hover {
-            background-color: rgba(141, 190, 252, 0.7);
-        }
-
     }
 
 }
 
-.dot{
+.dot {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     border: solid 1px;
 }
 
-.role-td{
+.role-td {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-

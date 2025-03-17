@@ -1,6 +1,6 @@
 mat-card {
     position: relative;
-    flex: 1;
+    // flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,34 +9,17 @@ mat-card {
     border: none;
     padding: 10px;
     height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
-// .card-darkMode {
-//     background-color: rgba(141, 190, 252, 0.5);
-//     color: whitesmoke;
-
-//     &:hover {
-//         background-color: rgba(141, 190, 252, 0.8);
-//         scale: 1.05;
-//     }
-// }
-
-// .card-lightMode {
-//     background-color: rgba(23, 30, 61, 0.5);
-//     color: whitesmoke;
-
-//     &:hover {
-//         background-color: rgba(23, 30, 61, 0.8);
-//         scale: 1.05;
-//     }
-// }
 
 .countNumber {
     position: absolute;
     top: 50%;
     font-size: 70px;
 }
+
 
 .overview-card-header {
     position: absolute;
@@ -51,16 +34,15 @@ mat-card {
 
 .dark-mode {
     background-color: rgba(23, 30, 61, 0.5);
-
     &:hover {
         background-color: rgba(23, 30, 61, 0.8);
         scale: 1.05;
     }
 }
 
+
 .light-mode {
     background-color: rgba(141, 190, 252, 0.5);
-
     &:hover {
         background-color: rgba(141, 190, 252, 0.8);
         scale: 1.05;

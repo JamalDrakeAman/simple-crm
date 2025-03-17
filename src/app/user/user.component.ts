@@ -15,6 +15,7 @@ import { FirestoreServiceService } from '../shared/services/firestore-service.se
 
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../shared/services/theme.service';
 
 
 @Component({
@@ -35,16 +36,13 @@ import { CommonModule } from '@angular/common';
 export class UserComponent implements OnInit, OnDestroy {
 
   userData = inject(FirestoreServiceService);
+  theme = inject(ThemeService);
+
   users: User[] = [];
 
-  isDarkMode = false;
-
   private unsubscribe!: () => void;
-  constructor(public dialog: MatDialog) { 
+  constructor(public dialog: MatDialog) {
 
-    const savedMode = localStorage.getItem('darkMode');
-    this.isDarkMode = savedMode === 'true';
-    console.log('darkMode',this.isDarkMode);
   }
 
 

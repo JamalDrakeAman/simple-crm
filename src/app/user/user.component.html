@@ -1,10 +1,8 @@
 <section>
 
-
-
     <mat-card appearance="outlined">
-        <table [ngClass]="{'table-darkeMode': isDarkMode,'table-lightMode': !isDarkMode }" class="user-table">
-            <tr>
+        <table class="user-table">
+            <tr [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
                 <th>Name</th>
                 <th>User Roles</th>
                 <th>Email</th>
@@ -12,7 +10,7 @@
             </tr>
 
             @for (user of users; track $index) {
-            <tr [routerLink]="['/user/' + user.id]">
+            <tr [routerLink]="['/user/' + user.id]" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
                 <td>{{user.firstName}} {{user.lastName}}</td>
                 <td class="role-td"><span class="dot {{user.userRole}}"></span>{{user.userRole.charAt(0).toUpperCase() +
                     user.userRole.slice(1).toLowerCase()}}</td>
@@ -21,15 +19,11 @@
             </tr>
             }
 
-
         </table>
     </mat-card>
-
 
     <button (click)="openDialog()" class="add-user-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
         <mat-icon>add</mat-icon>
     </button>
-
-
 
 </section>

@@ -1,0 +1,16 @@
+section {
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgba(141, 190, 252, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all ease-in-out 100ms;
+
+    &:hover {
+        background-color: rgba(141, 190, 252, 0.8);
+        scale: 1.05;
+    }
+}

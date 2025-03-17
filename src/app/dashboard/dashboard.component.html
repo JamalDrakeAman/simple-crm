@@ -8,7 +8,7 @@
     <span>o</span>
     <span>m</span>
     <span>e</span>
-    <span> </span>
+    <span>&nbsp;</span>
     <span>U</span>
     <span>s</span>
     <span>e</span>
@@ -23,9 +23,9 @@
 
   <div class="users-overview-row">
     <!-- <h1>Total Users</h1> -->
-      <app-user-overwiew-card [title]="'Users'" [count]="users.length"></app-user-overwiew-card>
-      <app-user-overwiew-card [title]="'Customers'" [count]="customer.length"></app-user-overwiew-card>
-      <app-user-overwiew-card [title]="'Total'" [count]="users.length + customer.length"></app-user-overwiew-card>
+    <app-user-overwiew-card [title]="'Users'" [count]="users.length"></app-user-overwiew-card>
+    <app-user-overwiew-card [title]="'Customers'" [count]="customer.length"></app-user-overwiew-card>
+    <app-user-overwiew-card [title]="'Total'" [count]="users.length + customer.length"></app-user-overwiew-card>
   </div>
 
   <div class="todos-notes-overview-row">

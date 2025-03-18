@@ -1,4 +1,5 @@
 section {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,36 +9,75 @@ section {
     width: 100%;
     cursor: pointer;
     transition: all ease-in-out 100ms;
+    overflow: hidden;
+
+    &:hover {
+        scale: 1.02;
+    }
 }
 
-.weather-widget {
-    border-radius: 8px;
-    max-width: 300px;
-    text-align: center;
+.weather-header {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
-.weather-widget h2 {
-    margin-bottom: 10px;
+
+
+.temp {
+    position: absolute;
+    top: 50%;
+    font-size: 70px;
 }
 
-.weather-widget p {
-    margin: 5px 0;
+.detail-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.weather-details {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 100%;
+    box-sizing: border-box;
+
+    p {
+        margin: 0;
+    }
+}
+
+.details-icon {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+
 
 .dark-mode {
     background-color: rgba(23, 30, 61, 0.5);
 
     &:hover {
         background-color: rgba(23, 30, 61, 0.8);
-        scale: 1.05;
     }
 }
+
 
 .light-mode {
     background-color: rgba(141, 190, 252, 0.5);
 
     &:hover {
         background-color: rgba(141, 190, 252, 0.8);
-        scale: 1.05;
     }
 }

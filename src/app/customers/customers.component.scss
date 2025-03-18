@@ -62,25 +62,44 @@ mat-card {
     overflow: hidden;
 }
 
-.table-darkeMode {
-    background-color: rgba(141, 190, 252, 0.5);
 
-    tr {
-        &:hover {
-            background-color: rgba(141, 190, 252, 0.7);
-        }
-    }
-}
 
-.table-lightMode {
+
+.dark-mode {
     background-color: rgba(23, 30, 61, 0.5);
 
-    tr {
-        &:hover {
-            background-color: rgba(23, 30, 61, 0.7);
-        }
+    &:hover {
+        background-color: rgba(23, 30, 61, 0.8);
     }
 }
+
+.light-mode {
+    background-color: rgba(141, 190, 252, 0.5);
+
+    &:hover {
+        background-color: rgba(141, 190, 252, 0.8);
+    }
+}
+
+// .table-darkeMode {
+//     background-color: rgba(141, 190, 252, 0.5);
+
+//     tr {
+//         &:hover {
+//             background-color: rgba(141, 190, 252, 0.7);
+//         }
+//     }
+// }
+
+// .table-lightMode {
+//     background-color: rgba(23, 30, 61, 0.5);
+
+//     tr {
+//         &:hover {
+//             background-color: rgba(23, 30, 61, 0.7);
+//         }
+//     }
+// }
 
 .user-table {
     width: 100%;

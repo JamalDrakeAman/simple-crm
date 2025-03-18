@@ -19,7 +19,7 @@ export class WeatherComponent implements OnInit {
 
 
   weatherData: any;
-  city = 'Berlin,DE'; // Stadtname
+  city = 'Mannheim,DE'; // Stadtname
 
   constructor(private weatherService: WeatherService) { }
 
@@ -31,11 +31,19 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getWeather(this.city).subscribe(
       (data) => {
         this.weatherData = data;
+        console.log('Wetter Daten',this.weatherData);
+        
       },
       (error) => {
         console.error('Fehler beim Abrufen der Wetterdaten:', error);
       }
     );
+  }
+
+
+  getFormattedTime(timestamp: number): string {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
 
 }

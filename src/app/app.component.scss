@@ -9,6 +9,7 @@ section {
 mat-toolbar {
     background-color: #6A7FDB;
     background-color: #171e3d;
+    background-color: rgba(23, 30, 61, 0.8);
     color: whitesmoke;
     box-shadow: 1px 5px 6px rgba(141, 190, 252, 0.08);
 }
@@ -36,8 +37,10 @@ mat-toolbar {
 .sidenav {
     // box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
     // box-shadow: 4px 0px 10px rgba(141, 190, 252, 0.08);
+    background-color: rgba(23, 30, 61, 0.4);
+    display: flex;
     width: 300px;
-    background-color: unset;
+    // background-color: unset;
     color: whitesmoke;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -109,4 +112,23 @@ mat-toolbar-row {
     padding-left: 56px;
     padding-right: 56px;
     padding-top: 16px;
+}
+
+
+.legals {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 30px;
+    a {
+        color: whitesmoke;
+        text-decoration: unset;
+        font-weight: normal;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 }

@@ -4,7 +4,6 @@
     position: relative;
     @include flex($align: center, $justify: center);
     border-radius: 20px;
-    // background-color: rgba(23, 30, 61, 0.5);
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -20,7 +19,6 @@
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-    // background-color: rgba(23, 30, 61, 0.5);
 }
 
 .clock-footer{
@@ -33,7 +31,6 @@
     position: absolute;
     top: 50%;
     font-size: 70px;
-    transition: all ease-in-out 500ms;
 }
 
 .dark-mode {

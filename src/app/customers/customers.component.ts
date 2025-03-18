@@ -16,6 +16,7 @@ import { FirestoreServiceService } from '../shared/services/firestore-service.se
 
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../shared/services/theme.service';
 
 @Component({
   selector: 'app-customers',
@@ -33,17 +34,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './customers.component.scss'
 })
 export class CustomersComponent implements OnInit {
-  isDarkMode = false;
-
-
+  // isDarkMode = false;
   userData = inject(FirestoreServiceService);
+  theme = inject(ThemeService);
+
   customers: Customer[] = [];
 
   private unsubscribe!: () => void;
   constructor(public dialog: MatDialog) {
-    const savedMode = localStorage.getItem('darkMode');
-    this.isDarkMode = savedMode === 'true';
-    console.log('darkMode', this.isDarkMode);
+    // const savedMode = localStorage.getItem('darkMode');
+    // this.isDarkMode = savedMode === 'true';
+    // console.log('darkMode', this.isDarkMode);
   }
 
 

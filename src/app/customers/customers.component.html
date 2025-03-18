@@ -1,6 +1,4 @@
 <div class="headline">
-    <!-- Customers -->
-
     <span>C</span>
     <span>u</span>
     <span>s</span>
@@ -15,15 +13,15 @@
 <section>
 
     <mat-card appearance="outlined">
-        <table [ngClass]="{'table-darkeMode': isDarkMode,'table-lightMode': !isDarkMode }" class="user-table">
-            <tr>
+        <table class="user-table">
+            <tr [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
                 <th>Name</th>
                 <th>Email</th>
                 <th>City</th>
             </tr>
 
             @for (cust of customers; track $index) {
-            <tr [routerLink]="['/user/' + cust.id]">
+            <tr [routerLink]="['/user/' + cust.id]" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
                 <td>{{cust.firstName}} {{cust.lastName}}</td>
                 <td>{{cust.email}}</td>
                 <td>{{cust.city}}</td>

@@ -17,4 +17,10 @@ export class DayGridComponent {
 
   @Input() index = 0;
 
+  @Input() dayName = ''
+
+  @Input() dayNumber = 0;
+
+  @Input() isToday = false;
+
 }

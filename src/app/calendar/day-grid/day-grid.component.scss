@@ -21,10 +21,18 @@ section {
         scale: 1.05;
         font-size: 25px;
     }
+
     @include slideInAnimation(0.2s);
+
 }
 
-.day-header{
+.today {
+    background-color: rgba(255, 200, 100, 0.8) !important; // Hellorange
+    border-color: rgba(235, 180, 80, 0.8) !important; // Dunkleres Orange
+}
+
+
+.day-header {
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -42,6 +50,7 @@ section {
 
 .dark-mode {
     background-color: rgba(23, 30, 61, 0.5);
+
     &:hover {
         background-color: rgba(23, 30, 61, 0.8);
     }
@@ -49,6 +58,7 @@ section {
 
 .light-mode {
     background-color: rgba(141, 190, 252, 0.5);
+
     &:hover {
         background-color: rgba(141, 190, 252, 0.8);
     }

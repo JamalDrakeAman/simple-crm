@@ -25,6 +25,7 @@ section{
     border: solid 1px;
 
     overflow: hidden;
+    @include slideInAnimation(0.2s);
 }
 
 

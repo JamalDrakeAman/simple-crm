@@ -8,5 +8,19 @@ section {
     gap: 20px;
     width: 100%;
     height: 100%;
-    border: solid 1px;
+    // border: solid 1px;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }

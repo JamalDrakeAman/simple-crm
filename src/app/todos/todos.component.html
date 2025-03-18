@@ -1,26 +1,43 @@
-
 <div class="headline">
-    <span>T</span>
-    <span>o</span>
-    <span>d</span>
-    <span>o</span>
-    <span>&nbsp;</span>
-    <span>L</span>
-    <span>i</span>
-    <span>s</span>
-    <span>t</span>
-  </div>
+  <span>T</span>
+  <span>o</span>
+  <span>d</span>
+  <span>o</span>
+  <span>&nbsp;</span>
+  <span>L</span>
+  <span>i</span>
+  <span>s</span>
+  <span>t</span>
+</div>
+
+<div class="month-display-container">
+  <button>previous</button>
+
+  <p>Month</p>
+
+  <button>next</button>
+</div>
+
+<div class="todos-day-container">
+  <nav class="todo-day-nav">
+    @for (item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]; track $index) {
+    <div class="todo-day-box">
+      <span>Day</span>
+      <span>{{$index + 1}}</span>
+
+    </div>
+    }
+  </nav>
+
+</div>
 
 
 <section>
 
-
- @for (item of [1,2,3,4,5]; track $index) {
+  @for (item of [1,2,3,4,5]; track $index) {
   <div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"></div>
 
- } 
-
-  
+  }
 
 
 </section>

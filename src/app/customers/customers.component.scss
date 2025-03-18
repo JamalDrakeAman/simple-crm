@@ -2,55 +2,6 @@
 @import './../shared/scss/mixins.scss';
 
 
-.headline {
-    display: flex;
-    font-size: 78px;
-    padding: 50px;
-    color: whitesmoke;
-}
-
-.headline span {
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: appear 0.5s forwards;
-}
-
-.headline span:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.headline span:nth-child(2) {
-    animation-delay: 0.02s;
-}
-
-.headline span:nth-child(3) {
-    animation-delay: 0.04s;
-}
-
-.headline span:nth-child(4) {
-    animation-delay: 0.06s;
-}
-
-.headline span:nth-child(5) {
-    animation-delay: 0.08s;
-}
-
-.headline span:nth-child(6) {
-    animation-delay: 0.10s;
-}
-
-.headline span:nth-child(7) {
-    animation-delay: 0.12s;
-}
-
-.headline span:nth-child(8) {
-    animation-delay: 0.14s;
-}
-
-.headline span:nth-child(9) {
-    animation-delay: 0.16s;
-}
-
 .add-user-btn {
     position: absolute;
     right: 56px;
@@ -60,8 +11,8 @@
 mat-card {
     background-color: unset;
     overflow: hidden;
+    border: unset;
 }
-
 
 .dark-mode {
     background-color: rgba(23, 30, 61, 0.5);
@@ -79,32 +30,13 @@ mat-card {
     }
 }
 
-// .table-darkeMode {
-//     background-color: rgba(141, 190, 252, 0.5);
-
-//     tr {
-//         &:hover {
-//             background-color: rgba(141, 190, 252, 0.7);
-//         }
-//     }
-// }
-
-// .table-lightMode {
-//     background-color: rgba(23, 30, 61, 0.5);
-
-//     tr {
-//         &:hover {
-//             background-color: rgba(23, 30, 61, 0.7);
-//         }
-//     }
-// }
-
 .user-table {
     width: 100%;
     padding: 10px 20px;
     border-collapse: collapse;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: whitesmoke;
+    @include slideInAnimation(0.2s);
 
     th {
         color: rgba(0, 0, 0, 0.4);

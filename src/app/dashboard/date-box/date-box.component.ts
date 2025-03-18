@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ThemeService } from '../../shared/services/theme.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-date-box',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   templateUrl: './date-box.component.html',
   styleUrl: './date-box.component.scss'

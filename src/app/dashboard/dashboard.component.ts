@@ -9,6 +9,7 @@ import { ClockComponent } from "./clock/clock.component";
 import { UserOverwiewCardComponent } from "./user-overwiew-card/user-overwiew-card.component";
 import { WeatherComponent } from "./weather/weather.component";
 import { DateBoxComponent } from "./date-box/date-box.component";
+import { ThemeService } from '../shared/services/theme.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,7 @@ import { DateBoxComponent } from "./date-box/date-box.component";
     UserOverwiewCardComponent,
     WeatherComponent,
     DateBoxComponent
-],
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -34,16 +35,16 @@ export class DashboardComponent implements OnInit {
   users: User[] = [];
   customer: Customer[] = [];
 
-  isDarkMode = false;
+  // isDarkMode = false;
 
-  
+  theme = inject(ThemeService);
 
 
   constructor() {
-    console.log(this.userData);
-    const savedMode = localStorage.getItem('darkMode');
-    this.isDarkMode = savedMode === 'true';
-    console.log('darkMode',this.isDarkMode);
+    // console.log(this.userData);
+    // const savedMode = localStorage.getItem('darkMode');
+    // this.isDarkMode = savedMode === 'true';
+    // console.log('darkMode',this.isDarkMode);
   }
 
 

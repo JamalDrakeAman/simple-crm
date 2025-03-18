@@ -6,6 +6,8 @@ import { CustomersComponent } from './customers/customers.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotesComponent } from './notes/notes.component';
 import { TodosComponent } from './todos/todos.component';
+import { ImprintComponent } from './imprint/imprint.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 export const routes: Routes = [
     { path: '', component: DashboardComponent },
@@ -15,5 +17,7 @@ export const routes: Routes = [
     { path: 'customers', component: CustomersComponent },
     { path: 'calendar', component: CalendarComponent },
     { path: 'todos', component: TodosComponent },
-    { path: 'notes', component: NotesComponent }  
+    { path: 'notes', component: NotesComponent },
+    { path: 'imprint', component: ImprintComponent },
+    { path: 'privacy', component: PrivacyPolicyComponent }
 ];

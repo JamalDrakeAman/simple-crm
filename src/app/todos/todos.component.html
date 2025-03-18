@@ -10,6 +10,17 @@
     <span>s</span>
     <span>t</span>
   </div>
+
+
 <section>
+
+
+ @for (item of [1,2,3,4,5]; track $index) {
+  <div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"></div>
+
+ } 
+
+  
+
 
 </section>

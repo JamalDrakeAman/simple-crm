@@ -30,6 +30,16 @@
 
   <div class="todos-notes-overview-row">
 
+    <div class="overview-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+      <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">  <span>Todo List</span>  <span>0</span></div>
+
+    </div>
+
+    <div class="overview-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+      <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">  <span>Notes</span>  <span>Latest Notes</span></div>
+
+    </div>
+
   </div>
 
 </section>

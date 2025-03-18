@@ -9,6 +9,9 @@
     overflow: hidden;
     cursor: pointer;
     transition: all ease-in-out 100ms;
+    &:hover{
+        scale: 1.03;
+    }
 }
 
 .clock-header{
@@ -37,7 +40,6 @@
     background-color: rgba(23, 30, 61, 0.5);
     &:hover {
         background-color: rgba(23, 30, 61, 0.8);
-        scale: 1.05;
     }
 }
 
@@ -45,6 +47,5 @@
     background-color: rgba(141, 190, 252, 0.5);
     &:hover {
         background-color: rgba(141, 190, 252, 0.8);
-        scale: 1.05;
     }
 }

@@ -1,6 +1,5 @@
 mat-card {
     position: relative;
-    // flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,6 +10,9 @@ mat-card {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    &:hover {
+        scale: 1.03;
+    }
 }
 
 
@@ -36,7 +38,6 @@ mat-card {
     background-color: rgba(23, 30, 61, 0.5);
     &:hover {
         background-color: rgba(23, 30, 61, 0.8);
-        scale: 1.05;
     }
 }
 
@@ -45,6 +46,5 @@ mat-card {
     background-color: rgba(141, 190, 252, 0.5);
     &:hover {
         background-color: rgba(141, 190, 252, 0.8);
-        scale: 1.05;
     }
 }

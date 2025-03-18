@@ -1,3 +1,42 @@
 @import './../shared/scss/keyframes.scss';
 @import './../shared/scss/mixins.scss';
 
+section{
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.todo-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 650px;
+    height: 250px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgba(141, 190, 252, 0.5);
+    padding: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all ease-in-out 100ms;
+    border: solid 1px;
+
+    overflow: hidden;
+}
+
+
+.dark-mode {
+    background-color: rgba(23, 30, 61, 0.5);
+    &:hover {
+        background-color: rgba(23, 30, 61, 0.8);
+    }
+}
+
+.light-mode {
+    background-color: rgba(141, 190, 252, 0.5);
+    &:hover {
+        background-color: rgba(141, 190, 252, 0.8);
+    }
+}

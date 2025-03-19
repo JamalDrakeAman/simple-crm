@@ -13,16 +13,16 @@
 
 
 <div class="header">
-    <button (click)="changeMonth(-1)">‹</button>
-    <h2>{{ getMonthName() }} {{ getYear() }}</h2>
-    <button (click)="changeMonth(1)">›</button>
+    <button (click)="calendar.changeMonth(-1)">‹</button>
+    <h2>{{ calendar.getMonthName() }} {{ calendar.getYear() }}</h2>
+    <button (click)="calendar.changeMonth(1)">›</button>
 </div>
 
 
 
 <section>
 
-    @for (dayInfo of daysInMonth; track $index) {
+    @for (dayInfo of calendar.daysInMonth; track $index) {
         <app-day-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index" [isToday]="dayInfo.isToday"></app-day-grid>
         }
 

@@ -22,7 +22,8 @@
 
   <nav class="todo-day-nav">
     @for (dayInfo of calendar.daysInMonth; track $index) {
-  <app-date-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index" [isToday]="dayInfo.isToday"></app-date-grid>
+    <app-date-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index"
+      [isToday]="dayInfo.isToday"></app-date-grid>
     }
   </nav>
 
@@ -31,9 +32,9 @@
 
 <section>
 
-  @for (item of [1,2,3,4,5]; track $index) {
-  <div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"></div>
+  @for (item of [1,2,3,4]; track $index) {
 
+  <app-todo-task></app-todo-task>
   }
 
 

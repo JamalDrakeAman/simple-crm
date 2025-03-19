@@ -9,23 +9,7 @@ section {
 }
 
 
-.todo-box {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 650px;
-    height: 150px;
-    border-radius: 20px;
-    color: white;
-    background-color: rgba(141, 190, 252, 0.5);
-    padding: 20px;
-    cursor: pointer;
-    box-sizing: border-box;
-    transition: all ease-in-out 100ms;
-    border: solid 1px;
-    overflow: hidden;
-    @include slideInAnimation(0.4s);
-}
+
 
 
 .month-display-container {

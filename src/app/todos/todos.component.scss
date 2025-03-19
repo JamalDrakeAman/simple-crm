@@ -22,9 +22,8 @@ section {
     box-sizing: border-box;
     transition: all ease-in-out 100ms;
     border: solid 1px;
-
     overflow: hidden;
-    @include slideInAnimation(0.2s);
+    @include slideInAnimation(0.4s);
 }
 
 
@@ -39,6 +38,7 @@ section {
     gap: 50px;
     margin-bottom: 20px;
     background-color: rgba(141, 190, 252, 0.5);
+    @include slideInAnimation(0.2s);
 
     p {
         margin: 0;
@@ -55,6 +55,7 @@ section {
     padding: 15px;
     overflow: scroll;
     background-color: rgba(141, 190, 252, 0.3);
+    @include slideInAnimation(0.3s);
 }
 
 .todo-day-nav {

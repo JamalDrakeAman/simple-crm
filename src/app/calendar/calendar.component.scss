@@ -15,7 +15,10 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    background-color: rgba(141, 190, 252, 0.5);
+    padding: 10px 30%;
+    border-radius: 20px;
+    margin: 0 auto 20px;
   }
   
   .header button {
@@ -23,4 +26,13 @@ section {
     border: none;
     font-size: 24px;
     cursor: pointer;
+    color: whitesmoke;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    transition: all ease-in-out 100ms;
+    &:hover{
+      scale: 1.09;
+    }
   }

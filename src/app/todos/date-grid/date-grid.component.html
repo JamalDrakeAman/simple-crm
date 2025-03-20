@@ -1,6 +1,6 @@
-<div class="todo-day-box" [ngClass]="{'dark-mode': theme.darkMode(),'light-mode': !theme.darkMode(),'today': isToday, 'selected': isSelected}"
-(click)="selectDay()">
+<div class="todo-day-box"
+    [ngClass]="{'dark-mode': theme.darkMode(),'light-mode': !theme.darkMode(),'today': isToday, 'selected': isSelected}"
+    (click)="selectDay()">
     <span>{{dayName.substr(0, 2)}}</span>
     <span>{{dayNumber}}</span>
-
 </div>

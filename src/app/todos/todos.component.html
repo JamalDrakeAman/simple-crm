@@ -10,14 +10,15 @@
   <span>t</span>
 </div>
 
-<div class="month-display-container">
+
+<div class="month-display-container" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
   <button (click)="calendar.changeMonth(-1)">previous</button>
   <p>{{calendar.getMonthName()}}</p>
   <button (click)="calendar.changeMonth(1)">next</button>
 </div>
 
 
-<div class="todos-day-container">
+<div class="todos-day-container" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
   <nav class="todo-day-nav">
     @for (dayInfo of calendar.daysInMonth; track $index) {
     <app-date-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index" [isToday]="dayInfo.isToday"
@@ -36,10 +37,8 @@
   }
   }
 
-
   <button (click)="openDialog()" class="add-task-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
     <mat-icon>add</mat-icon>
   </button>
-
 
 </section>

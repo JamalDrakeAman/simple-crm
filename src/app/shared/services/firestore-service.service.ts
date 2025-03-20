@@ -13,8 +13,11 @@ export class FirestoreServiceService {
 
   firestore = inject(Firestore);
   db = this.firestore
+
   usersCollection = collection(this.firestore, 'users');
 
   customersCollection = collection(this.firestore, 'customers');
+
+  todosCollection = collection(this.firestore, 'todos');
 
 }

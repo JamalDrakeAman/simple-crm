@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { DayGridComponent } from "./day-grid/day-grid.component";
 import { CommonModule } from '@angular/common';
 import { CalendarService } from '../shared/services/calendar.service';
+import { ThemeService } from '../shared/services/theme.service';
 
 @Component({
   selector: 'app-calendar',
@@ -16,6 +17,8 @@ import { CalendarService } from '../shared/services/calendar.service';
 export class CalendarComponent {
 
   calendar = inject(CalendarService);
+
+  theme = inject(ThemeService);
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { ThemeService } from '../shared/services/theme.service';
 import { CommonModule } from '@angular/common';
 import { CalendarService } from '../shared/services/calendar.service';
@@ -10,6 +10,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule, } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component';
+
+import { onSnapshot } from "firebase/firestore";
+import { FirestoreServiceService } from '../shared/services/firestore-service.service';
+import { Todo } from '../../models/todo.class';
+
+import { Timestamp } from 'firebase/firestore';
 
 @Component({
   selector: 'app-todos',
@@ -30,46 +36,36 @@ import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.compon
 export class TodosComponent implements OnInit {
 
   theme = inject(ThemeService);
-
+  todoData = inject(FirestoreServiceService);
   calendar = inject(CalendarService);
 
   selectedDay: Date | null = null; // Speichert das ausgewählte Datum
   todoTasks: any[] = []; // Alle Todos
   filteredTasks: any[] = []; // Gefilterte Todos für den ausgewählten Tag
 
-  constructor(public dialog: MatDialog) {
-  }
+  private unsubscribe!: () => void;
+
+  constructor(public dialog: MatDialog) { }
 
   // Beispiel-Todos mit Timestamp
   ngOnInit(): void {
-    this.todoTasks = [
-      {
-        id: 1,
-        title: 'Meeting vorbereiten',
-        description: 'Präsentation für das Team-Meeting fertigstellen.',
-        timestamp: new Date(2025, 2, 1) // 1. März 2025
-      },
-      {
-        id: 2,
-        title: 'Einkaufen gehen',
-        description: 'Milch, Brot und Eier kaufen.',
-        timestamp: new Date(2025, 2, 6) // 6. März 2025
-      },
-      {
-        id: 3,
-        title: 'Sport treiben',
-        description: 'Joggen im Park um 18 Uhr.',
-        timestamp: new Date(2025, 2, 5) // 5. März 2025
-      },
-      {
-        id: 4,
-        title: 'Sport treiben',
-        description: 'Joggen im Park um 18 Uhr.',
-        timestamp: new Date(2025, 2, 20) // 5. März 2025
-      }
 
-    ];
-    
+    this.unsubscribe = onSnapshot(this.todoData.todosCollection, (snapshot) => {
+      this.todoTasks = snapshot.docs.map((doc) => {
+        const data = doc.data() as Todo;
+        data.id = doc.id; // Füge die Dokument-ID hinzu
+        // Konvertiere das Timestamp-Objekt in ein Date-Objekt
+
+        // Konvertiere das Timestamp-Objekt in ein Date-Objekt
+        if (data.timestamp instanceof Timestamp) {
+          data.timestamp = data.timestamp.toDate();
+        }
+  
+        return data;
+      });
+      console.log('Aktuelle Benutzer:', this.todoTasks);
+    });
+
 
     // Standardmäßig den heutigen Tag auswählen
     const today = new Date();
@@ -135,13 +131,21 @@ export class TodosComponent implements OnInit {
     const dialogRef = this.dialog.open(AddTaskDialogComponent, {
       data: { selectedDay: this.selectedDay }
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.todoTasks.push(result);
         this.filteredTasks = this.getTodosForDay(this.selectedDay!);
       }
     });
+  }
+
+
+  ngOnDestroy(): void {
+    // Beende das Abonnement, wenn die Komponente zerstört wird
+    if (this.unsubscribe) {
+      this.unsubscribe();
+    }
   }
 
 

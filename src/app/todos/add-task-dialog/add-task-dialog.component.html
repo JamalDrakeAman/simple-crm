@@ -11,7 +11,7 @@
         <div>
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Task Title</mat-label>
-                <input [disabled]="loading" [(ngModel)]="task.title" matInput placeholder="Task Title">
+                <input [disabled]="loading" [(ngModel)]="todo.title" matInput placeholder="Task Title">
             </mat-form-field>
         </div>
 
@@ -19,7 +19,7 @@
         <div>
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Description</mat-label>
-                <textarea [disabled]="loading" [(ngModel)]="task.description" matInput placeholder="Description"></textarea>
+                <textarea [disabled]="loading" [(ngModel)]="todo.description" matInput placeholder="Description"></textarea>
             </mat-form-field>
         </div>
 
@@ -27,7 +27,7 @@
         <div>
             <mat-form-field class="full-width">
                 <mat-label>Priority</mat-label>
-                <select [(ngModel)]="task.priority" matNativeControl required>
+                <select [(ngModel)]="todo.priority" matNativeControl required>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>

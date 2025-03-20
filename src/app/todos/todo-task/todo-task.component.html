@@ -13,7 +13,7 @@
 </div> -->
 
 
-<div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+<!-- <div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
     <div class="task-title">
       <input type="checkbox" id="task-title-{{task.id}}" name="task-title-{{task.id}}" value="">
       <label for="task-title-{{task.id}}">{{task.title}}</label>
@@ -22,5 +22,16 @@
       <label for="description-{{task.id}}">Beschreibung:</label>
       <textarea name="description-{{task.id}}" id="description-{{task.id}}" readonly>{{task.description}}</textarea>
     </div>
-  </div>
+  </div> -->
   
+
+
+<div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+  <div class="task-title">
+    <input type="checkbox" id="task-title-{{task.id}}" name="task-title-{{task.id}}" value="">
+    <label for="task-title-{{task.id}}">{{task.title}}</label>
+  </div>
+  <div class="task-description" id="description-{{task.id}}">
+    {{task.description}}
+  </div>
+</div>

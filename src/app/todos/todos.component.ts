@@ -38,7 +38,6 @@ export class TodosComponent implements OnInit {
   filteredTasks: any[] = []; // Gefilterte Todos für den ausgewählten Tag
 
   constructor(public dialog: MatDialog) {
-
   }
 
   // Beispiel-Todos mit Timestamp
@@ -99,6 +98,8 @@ export class TodosComponent implements OnInit {
     return filtered;
   }
 
+
+
   // Monat wechseln
   changeMonth(offset: number): void {
     this.calendar.changeMonth(offset);
@@ -107,7 +108,6 @@ export class TodosComponent implements OnInit {
     const day = this.selectedDay ? this.selectedDay.getDate() : 1; // Behalte den ausgewählten Tag bei
     this.selectDay(new Date(year, month, day));
   }
-
 
 
   isSelectedDay(day: number): boolean {
@@ -120,7 +120,6 @@ export class TodosComponent implements OnInit {
       this.selectedDay.getDate() === day
     );
   }
-
 
 
   selectDayFromGrid(day: number): void {
@@ -145,5 +144,5 @@ export class TodosComponent implements OnInit {
     });
   }
 
-  
+
 }

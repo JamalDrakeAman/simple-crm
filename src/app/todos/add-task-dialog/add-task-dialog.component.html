@@ -1,0 +1,45 @@
+<div class="dialog-container">
+
+    @if (loading) {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+
+    <div class="headline">Add Task</div>
+    <mat-dialog-content>
+
+        <!-- Titel der Aufgabe -->
+        <div>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Task Title</mat-label>
+                <input [disabled]="loading" [(ngModel)]="task.title" matInput placeholder="Task Title">
+            </mat-form-field>
+        </div>
+
+        <!-- Beschreibung der Aufgabe -->
+        <div>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea [disabled]="loading" [(ngModel)]="task.description" matInput placeholder="Description"></textarea>
+            </mat-form-field>
+        </div>
+
+        <!-- Priorität der Aufgabe -->
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label>Priority</mat-label>
+                <select [(ngModel)]="task.priority" matNativeControl required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-button (click)="dialogRef.close()">Cancel</button>
+        <button mat-button (click)="saveTask()" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+
+</div>

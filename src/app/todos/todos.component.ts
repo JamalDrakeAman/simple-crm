@@ -4,6 +4,12 @@ import { CommonModule } from '@angular/common';
 import { CalendarService } from '../shared/services/calendar.service';
 import { DateGridComponent } from './date-grid/date-grid.component';
 import { TodoTaskComponent } from './todo-task/todo-task.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule, } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component';
 
 @Component({
   selector: 'app-todos',
@@ -11,7 +17,12 @@ import { TodoTaskComponent } from './todo-task/todo-task.component';
   imports: [
     CommonModule,
     DateGridComponent,
-    TodoTaskComponent
+    TodoTaskComponent,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatDialogModule,
+    AddTaskDialogComponent
   ],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss'
@@ -25,6 +36,10 @@ export class TodosComponent implements OnInit {
   selectedDay: Date | null = null; // Speichert das ausgewählte Datum
   todoTasks: any[] = []; // Alle Todos
   filteredTasks: any[] = []; // Gefilterte Todos für den ausgewählten Tag
+
+  constructor(public dialog: MatDialog) {
+
+  }
 
   // Beispiel-Todos mit Timestamp
   ngOnInit(): void {
@@ -46,7 +61,14 @@ export class TodosComponent implements OnInit {
         title: 'Sport treiben',
         description: 'Joggen im Park um 18 Uhr.',
         timestamp: new Date(2025, 2, 5) // 5. März 2025
+      },
+      {
+        id: 4,
+        title: 'Sport treiben',
+        description: 'Joggen im Park um 18 Uhr.',
+        timestamp: new Date(2025, 2, 20) // 5. März 2025
       }
+
     ];
     
 
@@ -87,6 +109,7 @@ export class TodosComponent implements OnInit {
   }
 
 
+
   isSelectedDay(day: number): boolean {
     if (!this.selectedDay) return false;
     const year = this.calendar.currentDate.getFullYear();
@@ -99,6 +122,7 @@ export class TodosComponent implements OnInit {
   }
 
 
+
   selectDayFromGrid(day: number): void {
     const year = this.calendar.currentDate.getFullYear();
     const month = this.calendar.currentDate.getMonth();
@@ -106,4 +130,20 @@ export class TodosComponent implements OnInit {
     console.log('Ausgewähltes Datum aus Grid:', selectedDate); // Debugging
     this.selectDay(selectedDate);
   }
+
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AddTaskDialogComponent, {
+      data: { selectedDay: this.selectedDay }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.todoTasks.push(result);
+        this.filteredTasks = this.getTodosForDay(this.selectedDay!);
+      }
+    });
+  }
+
+  
 }

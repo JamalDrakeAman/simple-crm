@@ -19,7 +19,7 @@
     transition: all ease-in-out 100ms;
     border: solid 1px;
     overflow: hidden;
-    @include slideInAnimation(0.4s);
+    @include slideInAnimation(0.2s);
 }
 
 .task-title {

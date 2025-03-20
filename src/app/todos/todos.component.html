@@ -12,29 +12,33 @@
 
 <div class="month-display-container">
   <button (click)="calendar.changeMonth(-1)">previous</button>
-
   <p>{{calendar.getMonthName()}}</p>
-
   <button (click)="calendar.changeMonth(1)">next</button>
 </div>
 
-<div class="todos-day-container">
 
+<div class="todos-day-container">
   <nav class="todo-day-nav">
     @for (dayInfo of calendar.daysInMonth; track $index) {
-    <app-date-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index"
-      [isToday]="dayInfo.isToday"></app-date-grid>
+      <app-date-grid 
+        [dayNumber]="dayInfo.day" 
+        [dayName]="dayInfo.dayName" 
+        [index]="$index"
+        [isToday]="dayInfo.isToday"
+        [isSelected]="isSelectedDay(dayInfo.day)"
+        (daySelected)="selectDayFromGrid(dayInfo.day)">
+      </app-date-grid>
     }
   </nav>
-
 </div>
 
 
 <section>
 
-  @for (item of [1,2,3,4]; track $index) {
-
-  <app-todo-task></app-todo-task>
+  @if (selectedDay !== null) {
+    @for (task of filteredTasks; track task.id) { <!-- Hier filteredTasks verwenden -->
+      <app-todo-task [task]="task"></app-todo-task>
+    }
   }
 
 

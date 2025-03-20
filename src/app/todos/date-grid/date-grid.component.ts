@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, Output, EventEmitter} from '@angular/core';
 import { ThemeService } from '../../shared/services/theme.service';
 import { CommonModule } from '@angular/common';
 
@@ -22,6 +22,15 @@ export class DateGridComponent {
   @Input() dayNumber = 0;
 
   @Input() isToday = false;
+
+  @Input() isSelected = false; // Neu: Gibt an, ob der Tag ausgewählt ist
+
+
+  @Output() daySelected = new EventEmitter<number>();
+
+  selectDay(): void {
+    this.daySelected.emit(this.dayNumber); // Emittiere den ausgewählten Tag
+  }
 
 
 }

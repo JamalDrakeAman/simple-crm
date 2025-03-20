@@ -22,27 +22,21 @@
     @include slideInAnimation(0.4s);
 }
 
-.task-title{
+.task-title {
     display: flex;
     width: 100%;
     height: 50px;
+    gap: 15px;
     align-items: center;
     border: 1px solid;
     border-radius: 20px;
 }
 
-.task-description{
+.task-description {
     display: flex;
     flex-direction: column;
 
-textarea{
-    background-color: unset;
+    textarea {
+        background-color: unset;
+    }
 }
-}
-
-
-
-
-
-
-

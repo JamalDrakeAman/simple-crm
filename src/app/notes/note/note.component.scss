@@ -1,0 +1,32 @@
+@import './../../shared/scss/keyframes.scss';
+@import './../../shared/scss/mixins.scss';
+@import './../../shared/scss/theme.scss';
+
+
+.note-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 650px;
+    height: 550px;
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all ease-in-out 100ms;
+    border: solid 1px;
+    overflow: hidden;
+    overflow: auto;
+    @include slideInAnimation(0.2s);
+    cursor: pointer;
+}
+
+.note-title{
+    margin: 0 auto 20px;
+    font-size: 30px;
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+
+
+

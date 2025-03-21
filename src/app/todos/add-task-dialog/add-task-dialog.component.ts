@@ -1,4 +1,4 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, EventEmitter, inject, Inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   MatDialogContent,
@@ -38,6 +38,7 @@ export class AddTaskDialogComponent {
   loading = false;
   todo = new Todo();
 
+
   task: any = {
     title: '',
     description: '',
@@ -70,7 +71,7 @@ export class AddTaskDialogComponent {
 
       const docRef = await addDoc(this.todoData.todosCollection, this.todo.toJSON());
       console.log('Todo added with ID:', docRef.id);
-      this.dialogRef.close();
+      this.dialogRef.close(this.todo);
     } catch (error) {
       console.error('Error adding user:', error);
     }

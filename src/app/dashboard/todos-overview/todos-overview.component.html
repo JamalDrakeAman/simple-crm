@@ -1,0 +1,27 @@
+<!-- <div class="overview-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+    <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"> <span>Todo List</span>
+        <span>0</span></div>
+
+</div> -->
+
+
+<div class="overview-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+    <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+        <span>Todo List</span>
+        <span>{{ filteredTasks.length }}</span> <!-- Anzahl der Todos für heute -->
+    </div>
+
+    <!-- Liste der Todos für heute -->
+    @if (filteredTasks.length > 0) {
+        <ul>
+            @for (task of filteredTasks; track task.id) {
+                <li>
+                    {{ task.title }} - {{ task.timestamp | date: 'short' }}
+                </li>
+            }
+        </ul>
+    } @else {
+        <p>Keine Todos für heute.</p>
+    }
+
+</div>

@@ -1,4 +1,3 @@
-
 <div class="headline">
     <span>N</span>
     <span>o</span>
@@ -8,12 +7,18 @@
 </div>
 
 <div class="search-notes-container">
-    <input type="text" placeholder="Search Notes">
+    <input type="text" placeholder="Search Notes" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
 </div>
 
 <section>
     @for (note of notes; track $index) {
-        <app-note [title]="note.noteTitle"  [noteDescription]="note.description"></app-note>
-      
-       } 
+    <app-note [title]="note.noteTitle" [noteDescription]="note.description"></app-note>
+
+    }
+
+
+    <button (click)="openDialog()" class="add-note-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
+        <mat-icon>add</mat-icon>
+    </button>
+
 </section>

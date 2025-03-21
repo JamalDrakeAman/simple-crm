@@ -10,6 +10,7 @@ import { UserOverwiewCardComponent } from "./user-overwiew-card/user-overwiew-ca
 import { WeatherComponent } from "./weather/weather.component";
 import { DateBoxComponent } from "./date-box/date-box.component";
 import { ThemeService } from '../shared/services/theme.service';
+import { TodosOverviewComponent } from './todos-overview/todos-overview.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ import { ThemeService } from '../shared/services/theme.service';
     ClockComponent,
     UserOverwiewCardComponent,
     WeatherComponent,
-    DateBoxComponent
+    DateBoxComponent,
+    TodosOverviewComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

@@ -27,8 +27,7 @@ import { Timestamp } from 'firebase/firestore';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
-    MatDialogModule,
-    AddTaskDialogComponent
+    MatDialogModule
   ],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss'
@@ -39,17 +38,14 @@ export class TodosComponent implements OnInit {
   todoData = inject(FirestoreServiceService);
   calendar = inject(CalendarService);
 
+
   selectedDay: Date | null = null; // Speichert das ausgewählte Datum
   todoTasks: any[] = []; // Alle Todos
   filteredTasks: any[] = []; // Gefilterte Todos für den ausgewählten Tag
 
   private unsubscribe!: () => void;
 
-  constructor(public dialog: MatDialog) { }
-
-  // Beispiel-Todos mit Timestamp
-  ngOnInit(): void {
-
+  constructor(public dialog: MatDialog) {
     this.unsubscribe = onSnapshot(this.todoData.todosCollection, (snapshot) => {
       this.todoTasks = snapshot.docs.map((doc) => {
         const data = doc.data() as Todo;
@@ -60,16 +56,25 @@ export class TodosComponent implements OnInit {
         if (data.timestamp instanceof Timestamp) {
           data.timestamp = data.timestamp.toDate();
         }
-  
+
         return data;
       });
       console.log('Aktuelle Benutzer:', this.todoTasks);
+      const today = new Date();
+      this.selectDay(today);
     });
 
 
     // Standardmäßig den heutigen Tag auswählen
     const today = new Date();
     this.selectDay(today);
+
+  }
+
+  // Beispiel-Todos mit Timestamp
+  ngOnInit(): void {
+
+
   }
 
   // Tag auswählen und Todos filtern
@@ -135,8 +140,16 @@ export class TodosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.todoTasks.push(result);
-        this.filteredTasks = this.getTodosForDay(this.selectedDay!);
+        if (this.selectedDay) {
+          this.filteredTasks = this.getTodosForDay(this.selectedDay);
+        }
+
       }
+
+      console.log(result);
+      console.log(this.selectedDay);
+
+
     });
   }
 

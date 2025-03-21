@@ -2,13 +2,25 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ThemeService } from '../shared/services/theme.service';
 import { NoteComponent } from './note/note.component';
+import { FirestoreServiceService } from '../shared/services/firestore-service.service';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule, } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { AddNoteDialogComponent } from './add-note-dialog/add-note-dialog.component';
 
 @Component({
   selector: 'app-notes',
   standalone: true,
   imports: [
     CommonModule,
-    NoteComponent
+    NoteComponent,
+    MatIconModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.scss'
@@ -16,6 +28,11 @@ import { NoteComponent } from './note/note.component';
 export class NotesComponent {
 
   theme = inject(ThemeService);
+
+  noteData = inject(FirestoreServiceService);
+
+
+  constructor(public dialog: MatDialog) { }
 
 
   notes = [
@@ -36,5 +53,11 @@ export class NotesComponent {
       description: 'Die dritte beschreibung auf der Note',
     }
   ];
+
+
+
+  openDialog() {
+    this.dialog.open(AddNoteDialogComponent);
+  }
 
 }

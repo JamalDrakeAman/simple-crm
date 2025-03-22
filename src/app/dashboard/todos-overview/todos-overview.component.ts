@@ -5,12 +5,14 @@ import { Timestamp } from 'firebase/firestore';
 import { onSnapshot } from 'firebase/firestore';
 import { ThemeService } from '../../shared/services/theme.service';
 import { TodoOverview } from '../../shared/interfaces/todo-overview.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-todos-overview',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   templateUrl: './todos-overview.component.html',
   styleUrl: './todos-overview.component.scss'
@@ -59,6 +61,7 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
     });
   }
 
+  
   ngOnDestroy(): void {
     // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {

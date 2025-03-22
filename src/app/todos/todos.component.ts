@@ -166,7 +166,6 @@ export class TodosComponent {
    * Unsubscribes from Firestore updates to prevent memory leaks.
    */
   ngOnDestroy(): void {
-    // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {
       this.unsubscribe();
     }

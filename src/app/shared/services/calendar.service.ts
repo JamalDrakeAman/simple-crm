@@ -19,10 +19,12 @@ export class CalendarService {
    * - `isToday`: A boolean indicating whether the day is today.
    */
   daysInMonth: { day: number, dayName: string, isToday: boolean }[] = []; // Speichert Tag, Wochentag und ob heute
+
   monthNames: string[] = [
     'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
     'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
   ];
+
   dayNames: string[] = [
     'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'
   ];
@@ -103,7 +105,7 @@ export class CalendarService {
     );
   }
 
-  
+
   /**
    * Changes the current month by a given offset.
    * @param offset - The number of months to change (e.g., 1 for next month, -1 for previous month).

@@ -47,8 +47,15 @@ export class NotesComponent implements OnInit {
         data.id = doc.id; // Füge die Dokument-ID hinzu
         return data;
       });
-      console.log('Aktuelle Benutzer:', this.notes);
+      console.log('Aktuelle Notes:', this.notes);
     });
+  }
+
+  ngOnDestroy(): void {
+    // Beende das Abonnement, wenn die Komponente zerstört wird
+    if (this.unsubscribe) {
+      this.unsubscribe();
+    }
   }
 
 
@@ -60,5 +67,6 @@ export class NotesComponent implements OnInit {
       maxHeight: '100vh', // Maximale Höhe (100% der Viewport-Höhe)
     });
   }
+
 
 }

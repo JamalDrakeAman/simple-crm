@@ -1,0 +1,14 @@
+<div class="overview-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+    <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"> <span>Notes</span>
+        <span>Latest Notes</span>
+    </div>
+
+    <div class="overview-notes-container">
+        <span class="note-title">{{noteTasks[noteTasks.length - 1].title}}</span>
+
+        <p class="note-description">{{noteTasks[noteTasks.length - 1].description}}</p>
+
+
+    </div>
+
+</div>

@@ -10,13 +10,11 @@
 
     <div class="overview-todos-container">
         
-
-
         @if (filteredTasks.length > 0) {
         <ul class="todos-list-conatiner">
             @for (task of filteredTasks; track task.id) {
             <li class="todos">
-                {{ task.title }} - {{ task.timestamp | date: 'short' }}
+                {{ task.title }} 
             </li>
             }
         </ul>
@@ -27,3 +25,5 @@
     </div>
 
 </div>
+
+<!-- - {{ task.timestamp | date: 'short' }} -->

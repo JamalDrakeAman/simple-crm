@@ -12,6 +12,7 @@ import { DateBoxComponent } from "./date-box/date-box.component";
 import { ThemeService } from '../shared/services/theme.service';
 import { TodosOverviewComponent } from './todos-overview/todos-overview.component';
 import { RouterLink } from '@angular/router';
+import { NotesOverviewComponent } from "./notes-overview/notes-overview.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -24,8 +25,9 @@ import { RouterLink } from '@angular/router';
     WeatherComponent,
     DateBoxComponent,
     TodosOverviewComponent,
-    RouterLink
-  ],
+    RouterLink,
+    NotesOverviewComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

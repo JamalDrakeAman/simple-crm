@@ -24,18 +24,16 @@
   <div class="users-overview-row">
     <!-- <h1>Total Users</h1> -->
     <app-user-overwiew-card routerLink="/user" [title]="'Users'" [count]="users.length"></app-user-overwiew-card>
-    <app-user-overwiew-card routerLink="/customers" [title]="'Customers'" [count]="customer.length"></app-user-overwiew-card>
+    <app-user-overwiew-card routerLink="/customers" [title]="'Customers'"
+      [count]="customer.length"></app-user-overwiew-card>
     <app-user-overwiew-card [title]="'Total'" [count]="users.length + customer.length"></app-user-overwiew-card>
   </div>
 
   <div class="todos-notes-overview-row">
 
-   <app-todos-overview></app-todos-overview>
+    <app-todos-overview></app-todos-overview>
 
-    <div class="overview-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
-      <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">  <span>Notes</span>  <span>Latest Notes</span></div>
-
-    </div>
+    <app-notes-overview></app-notes-overview>
 
   </div>
 

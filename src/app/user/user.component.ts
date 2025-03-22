@@ -41,9 +41,8 @@ export class UserComponent implements OnInit, OnDestroy {
   users: User[] = [];
 
   private unsubscribe!: () => void;
-  constructor(public dialog: MatDialog) {
 
-  }
+  constructor(public dialog: MatDialog) {}
 
 
   ngOnInit(): void {

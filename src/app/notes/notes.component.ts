@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ThemeService } from '../shared/services/theme.service';
 import { NoteComponent } from './note/note.component';
 import { FirestoreServiceService } from '../shared/services/firestore-service.service';
@@ -10,6 +10,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule, } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNoteDialogComponent } from './add-note-dialog/add-note-dialog.component';
+import { Note } from '../../models/note.class';
+import { onSnapshot } from '@firebase/firestore';
 
 @Component({
   selector: 'app-notes',
@@ -25,39 +27,38 @@ import { AddNoteDialogComponent } from './add-note-dialog/add-note-dialog.compon
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.scss'
 })
-export class NotesComponent {
+export class NotesComponent implements OnInit {
 
   theme = inject(ThemeService);
 
   noteData = inject(FirestoreServiceService);
 
+  notes: Note[] = [];
 
   constructor(public dialog: MatDialog) { }
 
+  private unsubscribe!: () => void;
 
-  notes = [
-    {
-      id: 0,
-      noteTitle: 'Note Title',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum cum aliquid excepturi saepe, mollitia quo iure nobis officia, porro libero voluptatibus. Suscipit sed deleniti nulla. Hic corporis quos nam culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum cum aliquid excepturi saepe, mollitia quo iure nobis officia, porro libero voluptatibus. Suscipit sed deleniti nulla. Hic corporis quos nam culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum cum aliquid excepturi saepe, mollitia quo iure nobis officia, porro libero voluptatibus. Suscipit sed deleniti nulla.'
-    },
-    {
-      id: 1,
-      noteTitle: 'Note Title 2',
-      description: 'Die zweite beschreibung auf der Note',
 
-    },
-    {
-      id: 2,
-      noteTitle: 'Note Title 3',
-      description: 'Die dritte beschreibung auf der Note',
-    }
-  ];
-
+  ngOnInit(): void {
+    this.unsubscribe = onSnapshot(this.noteData.notesCollection, (snapshot) => {
+      this.notes = snapshot.docs.map((doc) => {
+        const data = doc.data() as Note;
+        data.id = doc.id; // Füge die Dokument-ID hinzu
+        return data;
+      });
+      console.log('Aktuelle Benutzer:', this.notes);
+    });
+  }
 
 
   openDialog() {
-    this.dialog.open(AddNoteDialogComponent);
+    this.dialog.open(AddNoteDialogComponent, {
+      width: '600px', // Breite des Dialogs
+      height: '400px', // Höhe des Dialogs
+      maxWidth: '100vw', // Maximale Breite (100% der Viewport-Breite)
+      maxHeight: '100vh', // Maximale Höhe (100% der Viewport-Höhe)
+    });
   }
 
 }

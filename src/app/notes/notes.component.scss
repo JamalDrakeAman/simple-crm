@@ -15,12 +15,16 @@ section {
 
 .search-notes-container {
     width: 50%;
-    height: 60px;
+    height: fit-content;
+    gap: 20px;
     border: 2px solid;
     display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     border-radius: 20px;
     overflow: hidden;
     margin: 0 auto 40px;
+    padding: 20px;
 
     input {
         width: 100%;
@@ -39,8 +43,11 @@ section {
 
 
 .add-note-btn {
-    position: absolute;
-    right: 56px;
-    bottom: 56px;
+    // position: absolute;
+    // right: 56px;
+    // bottom: 56px;
+    color: whitesmoke;
 }
+
+
 

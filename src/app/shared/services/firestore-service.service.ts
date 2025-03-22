@@ -20,4 +20,6 @@ export class FirestoreServiceService {
 
   todosCollection = collection(this.firestore, 'todos');
 
+  notesCollection = collection(this.firestore, 'notes');
+
 }

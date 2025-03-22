@@ -8,17 +8,18 @@
 
 <div class="search-notes-container">
     <input type="text" placeholder="Search Notes" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+
+    
+    <button (click)="openDialog()" class="add-note-btn" mat-fab matTooltip="Add note" matTooltipPosition="above" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+        <mat-icon>add</mat-icon>
+    </button>
+
 </div>
 
 <section>
     @for (note of notes; track $index) {
-    <app-note [title]="note.noteTitle" [noteDescription]="note.description"></app-note>
+    <app-note [title]="note.title" [noteDescription]="note.description"></app-note>
 
     }
-
-
-    <button (click)="openDialog()" class="add-note-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
-        <mat-icon>add</mat-icon>
-    </button>
 
 </section>

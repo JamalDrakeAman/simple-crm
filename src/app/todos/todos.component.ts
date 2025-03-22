@@ -32,85 +32,92 @@ import { Timestamp } from 'firebase/firestore';
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss'
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent {
 
   theme = inject(ThemeService);
   todoData = inject(FirestoreServiceService);
   calendar = inject(CalendarService);
 
 
-  selectedDay: Date | null = null; // Speichert das ausgewählte Datum
-  todoTasks: any[] = []; // Alle Todos
-  filteredTasks: any[] = []; // Gefilterte Todos für den ausgewählten Tag
-
+  selectedDay: Date | null = null;
+  todoTasks: any[] = [];
+  filteredTasks: any[] = [];
   private unsubscribe!: () => void;
 
+
+  /**
+   * Initializes the component and subscribes to Firestore updates.
+   * @param dialog - Angular Material Dialog service for opening dialogs.
+   */
   constructor(public dialog: MatDialog) {
     this.unsubscribe = onSnapshot(this.todoData.todosCollection, (snapshot) => {
       this.todoTasks = snapshot.docs.map((doc) => {
         const data = doc.data() as Todo;
-        data.id = doc.id; // Füge die Dokument-ID hinzu
-        // Konvertiere das Timestamp-Objekt in ein Date-Objekt
-
-        // Konvertiere das Timestamp-Objekt in ein Date-Objekt
+        data.id = doc.id; // Add the document ID to the task
+        // Convert Firestore Timestamp to JavaScript Date
         if (data.timestamp instanceof Timestamp) {
           data.timestamp = data.timestamp.toDate();
         }
-
         return data;
       });
-      console.log('Aktuelle Benutzer:', this.todoTasks);
+
+      // After data is loaded, filter tasks for the current day
       const today = new Date();
       this.selectDay(today);
     });
 
-
-    // Standardmäßig den heutigen Tag auswählen
+    // Select today's date by default
     const today = new Date();
     this.selectDay(today);
-
   }
 
-  // Beispiel-Todos mit Timestamp
-  ngOnInit(): void {
 
-
-  }
-
-  // Tag auswählen und Todos filtern
+  /**
+   * Selects a specific day and filters tasks for that day.
+   * @param date - The date to select.
+   */
   selectDay(date: Date): void {
     this.selectedDay = date;
     this.filteredTasks = this.getTodosForDay(date);
   }
 
-  // Todos für den ausgewählten Tag filtern
+
+  /**
+   * Filters tasks for a specific day.
+   * @param date - The date to filter tasks for.
+   * @returns An array of tasks due on the specified date.
+   */
   getTodosForDay(date: Date): any[] {
-    console.log('Ausgewähltes Datum:', date); // Debugging
     const filtered = this.todoTasks.filter(task => {
       const taskDate = new Date(task.timestamp);
-      console.log('Task-Datum:', taskDate); // Debugging
       return (
         taskDate.getFullYear() === date.getFullYear() &&
         taskDate.getMonth() === date.getMonth() &&
         taskDate.getDate() === date.getDate()
       );
     });
-    console.log('Gefilterte Tasks:', filtered); // Debugging
     return filtered;
   }
 
 
-
-  // Monat wechseln
+  /**
+   * Changes the current month by a given offset.
+   * @param offset - The number of months to change (e.g., 1 for next month, -1 for previous month).
+   */
   changeMonth(offset: number): void {
     this.calendar.changeMonth(offset);
     const year = this.calendar.currentDate.getFullYear();
     const month = this.calendar.currentDate.getMonth();
-    const day = this.selectedDay ? this.selectedDay.getDate() : 1; // Behalte den ausgewählten Tag bei
+    const day = this.selectedDay ? this.selectedDay.getDate() : 1;
     this.selectDay(new Date(year, month, day));
   }
 
 
+  /**
+   * Checks if a specific day is currently selected.
+   * @param day - The day to check.
+   * @returns True if the day is selected, otherwise false.
+   */
   isSelectedDay(day: number): boolean {
     if (!this.selectedDay) return false;
     const year = this.calendar.currentDate.getFullYear();
@@ -123,15 +130,21 @@ export class TodosComponent implements OnInit {
   }
 
 
+  /**
+   * Selects a day from the date grid.
+   * @param day - The day to select.
+   */
   selectDayFromGrid(day: number): void {
     const year = this.calendar.currentDate.getFullYear();
     const month = this.calendar.currentDate.getMonth();
     const selectedDate = new Date(year, month, day);
-    console.log('Ausgewähltes Datum aus Grid:', selectedDate); // Debugging
     this.selectDay(selectedDate);
   }
 
 
+  /**
+  * Opens a dialog to add a new task.
+  */
   openDialog() {
     const dialogRef = this.dialog.open(AddTaskDialogComponent, {
       data: { selectedDay: this.selectedDay }
@@ -143,17 +156,15 @@ export class TodosComponent implements OnInit {
         if (this.selectedDay) {
           this.filteredTasks = this.getTodosForDay(this.selectedDay);
         }
-
       }
-
-      console.log(result);
-      console.log(this.selectedDay);
-
-
     });
   }
 
 
+  /**
+   * Lifecycle hook called before the component is destroyed.
+   * Unsubscribes from Firestore updates to prevent memory leaks.
+   */
   ngOnDestroy(): void {
     // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {

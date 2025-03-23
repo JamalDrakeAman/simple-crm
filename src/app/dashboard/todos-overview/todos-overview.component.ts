@@ -6,6 +6,7 @@ import { onSnapshot } from 'firebase/firestore';
 import { ThemeService } from '../../shared/services/theme.service';
 import { TodoOverview } from '../../shared/interfaces/todo-overview.interface';
 import { RouterLink } from '@angular/router';
+import { doc, setDoc } from "firebase/firestore";
 
 @Component({
   selector: 'app-todos-overview',
@@ -61,11 +62,30 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
     });
   }
 
-  
+
   ngOnDestroy(): void {
     // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {
       this.unsubscribe();
     }
   }
+
+
+  toggleTaskCompletion(task: any, i:number) {
+    task.completed = !task.completed;
+    this.writeTaskData(i);
+  }
+
+  async writeTaskData(i:number) {
+    const db = this.todosData.db
+    await setDoc(doc(db, "todos/" + this.filteredTasks[i].id), {
+      title: this.filteredTasks[i].title,
+      description: this.filteredTasks[i].description,
+      priority: this.filteredTasks[i].priority,
+      timestamp: this.filteredTasks[i].timestamp,
+      completed: this.filteredTasks[i].completed
+    });
+  }
+
+
 }

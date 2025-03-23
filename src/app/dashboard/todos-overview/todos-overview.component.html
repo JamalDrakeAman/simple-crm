@@ -1,20 +1,18 @@
-
-
-
 <div class="overview-container" routerLink="/todos" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
     <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
         <span>Todo List</span>
-        <span>{{ filteredTasks.length }}</span> 
+        <span>{{ filteredTasks.length }}</span>
     </div>
 
 
     <div class="overview-todos-container">
-        
+
         @if (filteredTasks.length > 0) {
         <ul class="todos-list-conatiner">
-            @for (task of filteredTasks; track task.id) {
+            @for (task of filteredTasks; track task.id; let i = $index) {
             <li class="todos">
-                {{ task.title }} 
+                <span>{{ task.title }} </span> <span><img class="checked-img" [src]="task.completed ? '/assets/icon/checkbox-on.svg' : '/assets/icon/checkbox-off.svg'"
+                    alt="" (click)="toggleTaskCompletion(task, i)"></span>
             </li>
             }
         </ul>

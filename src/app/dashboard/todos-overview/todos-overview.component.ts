@@ -71,12 +71,12 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
   }
 
 
-  toggleTaskCompletion(task: any, i:number) {
+  toggleTaskCompletion(task: any, i: number) {
     task.completed = !task.completed;
     this.writeTaskData(i);
   }
 
-  async writeTaskData(i:number) {
+  async writeTaskData(i: number) {
     const db = this.todosData.db
     await setDoc(doc(db, "todos/" + this.filteredTasks[i].id), {
       title: this.filteredTasks[i].title,

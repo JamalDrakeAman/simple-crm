@@ -18,8 +18,10 @@ import { doc, setDoc } from "firebase/firestore";
 export class TodoTaskComponent {
 
   todoTaskData = inject(FirestoreServiceService);
-
   theme = inject(ThemeService);
+
+  isExpanded = false;
+  showExpandButton = false;
 
   @Input() task!: {
     id: number,
@@ -28,31 +30,28 @@ export class TodoTaskComponent {
     completed: boolean,
     timestamp: Date,
     priority: string
-
-
   };
 
   @ViewChild('descriptionContainer', { static: false }) descriptionContainer!: ElementRef;
 
-  isExpanded = false;
-  showExpandButton = false;
+  constructor() { }
+
 
   toggleExpand() {
     this.isExpanded = !this.isExpanded;
   }
 
+
   toggleTaskCompletion(task: any) {
     task.completed = !task.completed;
-    this.writeTaskData()
-
-    console.log('task', task);
-    console.log('task id', task.id);
-
+    this.writeTaskData();
   }
+
 
   ngAfterViewInit() {
     this.checkDescriptionOverflow();
   }
+
 
   checkDescriptionOverflow() {
     const container = this.descriptionContainer.nativeElement;
@@ -61,11 +60,7 @@ export class TodoTaskComponent {
 
 
   async writeTaskData() {
-
-    // const db = getFirestore();
-
     const db = this.todoTaskData.db
-
     await setDoc(doc(db, "todos/" + this.task.id), {
       title: this.task.title,
       description: this.task.description,
@@ -77,10 +72,3 @@ export class TodoTaskComponent {
 
 
 }
-
-
-// title: this.task.title,
-//   description: this.task.description,
-//     priority: this.task.priority,
-//       timestamp: this.task.timestamp,
-//         completed: this.task.completed

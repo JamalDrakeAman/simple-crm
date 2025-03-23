@@ -55,8 +55,9 @@
   /* "Mehr anzeigen"-Button */
   .expand-button {
     background: none;
+    text-decoration: underline;
     border: none;
-    color: #007BFF;
+    color: #fdfdfd;
     cursor: pointer;
     font-size: 14px;
     padding: 0;
@@ -70,7 +71,7 @@
   
   /* Dark-Mode spezifische Anpassungen */
   .dark-mode .expand-button {
-    color: #1e90ff;
+    color: #ffffff;
   }
   
   .dark-mode .task-description {

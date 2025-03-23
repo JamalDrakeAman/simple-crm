@@ -13,6 +13,7 @@ import { ThemeService } from '../shared/services/theme.service';
 import { TodosOverviewComponent } from './todos-overview/todos-overview.component';
 import { RouterLink } from '@angular/router';
 import { NotesOverviewComponent } from "./notes-overview/notes-overview.component";
+import { RevenueChartComponent } from "./revenue-chart/revenue-chart.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +27,8 @@ import { NotesOverviewComponent } from "./notes-overview/notes-overview.componen
     DateBoxComponent,
     TodosOverviewComponent,
     RouterLink,
-    NotesOverviewComponent
+    NotesOverviewComponent,
+    RevenueChartComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

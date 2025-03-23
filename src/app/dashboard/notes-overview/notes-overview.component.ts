@@ -17,29 +17,25 @@ import { NoteOverview } from '../../shared/interfaces/note-overview.interface';
 export class NotesOverviewComponent implements OnInit {
 
   theme = inject(ThemeService);
-
   noteData = inject(FirestoreServiceService);
-
   noteTasks: any[] = [];
+
+  // lastNote = 
 
   private unsubscribe!: () => void;
 
-
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.unsubscribe = onSnapshot(this.noteData.notesCollection, (snapshot) => {
       this.noteTasks = snapshot.docs.map((doc) => {
         const data = doc.data() as NoteOverview;
         data.id = doc.id; // Füge die Dokument-ID hinzu
-
+        
         // Konvertiere das Timestamp-Objekt in ein Date-Objekt
         if (data.timestamp instanceof Timestamp) {
           data.timestamp = data.timestamp.toDate();
         }
-
         return data;
       });
       console.log('notes array', this.noteTasks);
@@ -53,5 +49,6 @@ export class NotesOverviewComponent implements OnInit {
       this.unsubscribe();
     }
   }
+
 
 }

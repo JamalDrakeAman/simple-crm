@@ -1,9 +1,50 @@
-<div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
-  <div class="task-title">
-    <input type="checkbox" id="task-title-{{task.id}}" name="task-title-{{task.id}}" value="">
-    <label for="task-title-{{task.id}}">{{task.title}}</label>
+<!-- <div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+
+  <div class="task-title" id="task-title-{{task.id}}">
+    {{task.title}}
+    <img class="checked-img" src="/assets/icon/checkbox-off.svg" alt="">
   </div>
+
   <div class="task-description" id="description-{{task.id}}">
     {{task.description}}
   </div>
+
+</div> -->
+
+
+
+
+<!-- <div class="todo-container">
+  <p class="todo-title">{{ task.title }}</p>
+  <div class="description-container" [ngStyle]="{ 'max-height': isExpanded ? 'none' : '60px' }">
+    <p class="todo-description">{{ task.description }}</p>
+  </div>
+  <button class="expand-button" (click)="toggleExpand()">
+    {{ isExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen' }}
+  </button>
+</div> -->
+
+
+
+<div class="todo-box" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+  <!-- Titel und Checkbox -->
+  <div class="task-header">
+    <h3 class="task-title" id="task-title-{{task.id}}">
+      {{task.title}}
+    </h3>
+    <img class="checked-img" [src]="task.completed ? '/assets/icon/checkbox-on.svg' : '/assets/icon/checkbox-off.svg'" alt="" (click)="toggleTaskCompletion(task)">
+  </div>
+
+  <!-- Beschreibung -->
+  <div class="task-description" id="description-{{task.id}}" [ngClass]="{'expanded': isExpanded}" #descriptionContainer>
+    {{task.description}}
+  </div>
+
+  <!-- "Mehr anzeigen"-Button (nur bei langen Beschreibungen) -->
+   @if(showExpandButton){
+    <button class="expand-button" (click)="toggleExpand()">
+      {{ isExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen' }}
+    </button>
+   }
+
 </div>

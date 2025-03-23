@@ -15,11 +15,13 @@
     <span>r</span>
   </div>
 
+
   <div class="weather-time-overview-row">
     <app-date-box class="time-overview"></app-date-box>
     <app-clock class="time-overview"></app-clock>
     <app-weather class="time-overview"></app-weather>
   </div>
+
 
   <div class="users-overview-row">
     <!-- <h1>Total Users</h1> -->
@@ -28,6 +30,14 @@
       [count]="customer.length"></app-user-overwiew-card>
     <app-user-overwiew-card [title]="'Total'" [count]="users.length + customer.length"></app-user-overwiew-card>
   </div>
+
+
+  <div class="chart-overview-row">
+
+    <app-revenue-chart></app-revenue-chart>
+
+  </div>
+
 
   <div class="todos-notes-overview-row">
 

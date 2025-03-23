@@ -1,14 +1,14 @@
 <div class="overview-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+
     <div class="overview-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"> <span>Notes</span>
         <span>Latest Notes</span>
     </div>
 
+    @if(noteTasks.length > 0){
     <div class="overview-notes-container">
-        <span class="note-title">{{noteTasks[noteTasks.length - 1].title}}</span>
-
-        <p class="note-description">{{noteTasks[noteTasks.length - 1].description}}</p>
-
-
+        <span class="note-title">{{noteTasks.slice(-1)[0].title}}</span>
+        <p class="note-description">{{noteTasks.slice(-1)[0].description}}</p>
     </div>
+    }
 
 </div>

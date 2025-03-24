@@ -2,6 +2,10 @@
 @import './../shared/scss/mixins.scss';
 
 
+section{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .add-user-btn {
     position: absolute;
     right: 56px;

@@ -6,13 +6,16 @@
         <img class="logo" src="assets/img/simple-crm.png" alt="">
       </div>
 
+
       <ul class="menu-items">
-        <li routerLink="/"> <mat-icon>dashboard</mat-icon> Dashboard</li>
-        <li routerLink="/user"> <mat-icon>person</mat-icon>User</li>
-        <li routerLink="/customers"> <mat-icon>person</mat-icon>Customers</li>
-        <li routerLink="/calendar"> <mat-icon>calendar_month</mat-icon>Calendar</li>
-        <li routerLink="/todos"> <mat-icon>checklist</mat-icon>Todo List</li>
-        <li routerLink="/notes"> <mat-icon>notes</mat-icon>Notes</li>
+        <li routerLink="/" [class.active]="activeRoute === '/'"> <mat-icon>dashboard</mat-icon> Dashboard</li>
+        <li routerLink="/user" [class.active]="activeRoute === '/user'"> <mat-icon>person</mat-icon>User</li>
+        <li routerLink="/customers" [class.active]="activeRoute === '/customers'"> <mat-icon>person</mat-icon>Customers
+        </li>
+        <li routerLink="/calendar" [class.active]="activeRoute === '/calendar'">
+          <mat-icon>calendar_month</mat-icon>Calendar</li>
+        <li routerLink="/todos" [class.active]="activeRoute === '/todos'"> <mat-icon>checklist</mat-icon>Todo List</li>
+        <li routerLink="/notes" [class.active]="activeRoute === '/notes'"> <mat-icon>notes</mat-icon>Notes</li>
       </ul>
 
 

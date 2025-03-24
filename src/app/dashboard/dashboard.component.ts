@@ -29,13 +29,14 @@ import { RevenueChartComponent } from "./revenue-chart/revenue-chart.component";
     RouterLink,
     NotesOverviewComponent,
     RevenueChartComponent
-],
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit {
 
   userData = inject(FirestoreServiceService);
+  theme = inject(ThemeService);
 
   private unsubUsers!: () => void;
   private unsubCust!: () => void;
@@ -43,21 +44,13 @@ export class DashboardComponent implements OnInit {
   users: User[] = [];
   customer: Customer[] = [];
 
-  // isDarkMode = false;
-
-  theme = inject(ThemeService);
 
 
-  constructor() {
-    // console.log(this.userData);
-    // const savedMode = localStorage.getItem('darkMode');
-    // this.isDarkMode = savedMode === 'true';
-    // console.log('darkMode',this.isDarkMode);
-  }
+
+  constructor() { }
 
 
   ngOnInit(): void {
-
     this.unsubUsers = onSnapshot(this.userData.usersCollection, (snapshot) => {
       this.users = snapshot.docs.map((doc) => {
         const data = doc.data() as User;
@@ -81,7 +74,6 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnDestroy(): void {
-    // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubUsers) {
       this.unsubUsers();
     }

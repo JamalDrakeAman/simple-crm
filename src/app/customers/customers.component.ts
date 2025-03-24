@@ -34,35 +34,29 @@ import { ThemeService } from '../shared/services/theme.service';
   styleUrl: './customers.component.scss'
 })
 export class CustomersComponent implements OnInit {
-  // isDarkMode = false;
-  userData = inject(FirestoreServiceService);
-  theme = inject(ThemeService);
 
+  customerData = inject(FirestoreServiceService);
+  theme = inject(ThemeService);
   customers: Customer[] = [];
 
   private unsubscribe!: () => void;
-  constructor(public dialog: MatDialog) {
-    // const savedMode = localStorage.getItem('darkMode');
-    // this.isDarkMode = savedMode === 'true';
-    // console.log('darkMode', this.isDarkMode);
-  }
+
+  constructor(public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
-    // onSnapshot für die Sammlung "users"
-    this.unsubscribe = onSnapshot(this.userData.customersCollection, (snapshot) => {
+    this.unsubscribe = onSnapshot(this.customerData.customersCollection, (snapshot) => {
       this.customers = snapshot.docs.map((doc) => {
         const data = doc.data() as Customer;
-        data.id = doc.id; // Füge die Dokument-ID hinzu
+        data.id = doc.id;
         return data;
       });
-      console.log('Aktuelle Benutzer:', this.customers);
+      // console.log('Aktuelle Benutzer:', this.customers);
     });
   }
 
 
   ngOnDestroy(): void {
-    // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {
       this.unsubscribe();
     }
@@ -72,4 +66,6 @@ export class CustomersComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogAddCustomerComponent);
   }
+
+
 }

@@ -20,8 +20,6 @@ export class NotesOverviewComponent implements OnInit {
   noteData = inject(FirestoreServiceService);
   noteTasks: any[] = [];
 
-  // lastNote = 
-
   private unsubscribe!: () => void;
 
   constructor() {}
@@ -44,7 +42,6 @@ export class NotesOverviewComponent implements OnInit {
 
 
   ngOnDestroy(): void {
-    // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {
       this.unsubscribe();
     }

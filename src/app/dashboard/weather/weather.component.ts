@@ -17,7 +17,6 @@ export class WeatherComponent implements OnInit {
 
   theme = inject(ThemeService);
 
-
   weatherData: any;
   city = 'Mannheim,DE'; // Stadtname
 
@@ -27,6 +26,7 @@ export class WeatherComponent implements OnInit {
     this.getWeather();
   }
 
+  
   getWeather(): void {
     this.weatherService.getWeather(this.city).subscribe(
       (data) => {

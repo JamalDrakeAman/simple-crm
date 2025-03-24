@@ -17,15 +17,13 @@ export class DateBoxComponent {
 
   dateParts: { weekday: string, month: string, day: string, year: string };
 
-  // isDarkMode = false;
   theme = inject(ThemeService);
 
   constructor() {
     const today = new Date();
     this.dateParts = this.formatDate(today);
-
-    console.log(this.dateParts);
   }
+
 
   formatDate(date: Date): { weekday: string, month: string, day: string, year: string } {
     const options: Intl.DateTimeFormatOptions = {
@@ -35,7 +33,6 @@ export class DateBoxComponent {
       day: 'numeric'
     };
 
-    
     const formattedDate = date.toLocaleDateString('de-DE', options);
     const parts = formattedDate.split(' ');
     const weekday = parts[0].replace(',', ''); 

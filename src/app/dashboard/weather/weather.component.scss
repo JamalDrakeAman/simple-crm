@@ -1,10 +1,12 @@
+@import './../../shared/scss/mixins.scss';
+@import './../../shared/scss/theme.scss';
+@import './../../shared/scss/keyframes.scss';
+
+
 section {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex($justify: center, $align: center);
     border-radius: 20px;
-    background-color: rgba(23, 30, 61, 0.5);
     height: 100%;
     width: 100%;
     cursor: pointer;
@@ -17,36 +19,26 @@ section {
 }
 
 .weather-header {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    top: 0;
+    @include absolute($top: 0);
+    @include flex($justify: space-between);
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
 }
 
-
-
 .temp {
-    position: absolute;
-    top: 50%;
+    @include absolute($top: 50%);
     font-size: 70px;
 }
 
-.detail-img{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.detail-img {
+    @include flex($direction: column, $align: center);
 }
 
 .weather-details {
-    position: absolute;
-    bottom: 0;
+    @include absolute($bottom: 0);
+    @include flex($justify: space-between, $align: end);
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
     width: 100%;
     box-sizing: border-box;
 
@@ -58,26 +50,4 @@ section {
 .details-icon {
     width: 30px;
     height: 30px;
-}
-
-
-
-
-
-
-.dark-mode {
-    background-color: rgba(23, 30, 61, 0.5);
-
-    &:hover {
-        background-color: rgba(23, 30, 61, 0.8);
-    }
-}
-
-
-.light-mode {
-    background-color: rgba(141, 190, 252, 0.5);
-
-    &:hover {
-        background-color: rgba(141, 190, 252, 0.8);
-    }
 }

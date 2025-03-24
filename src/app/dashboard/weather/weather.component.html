@@ -3,9 +3,6 @@
     <div class="weather-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
         <span>🌤️ Weather</span>
 
-
-
-
         @if (weatherData) {
         <span>{{weatherData.name}}</span>
         }
@@ -18,27 +15,33 @@
     </div>
 
 
-
-
     @if (weatherData) {
-        
-    
-        <p class="temp">{{ weatherData.main.temp | number:'1.0-1' }}°C</p>
-   
+    <p class="temp">{{ weatherData.main.temp | number:'1.0-1' }}°C</p>
 
     <div class="weather-details">
-        <p class="detail-img"><img [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
-            alt="Wetter-Icon"> {{ weatherData.weather[0].description | titlecase }}</p>
-        <p><img class="details-icon" src="/assets/icon/wind.png" alt=""> {{ weatherData.wind.speed }} m/s</p>
-        <p><img class="details-icon" src="/assets/icon/sunrise.png" alt="">{{ getFormattedTime(weatherData.sys.sunrise)
-            }}</p>
-        <p><img class="details-icon" src="/assets/icon/sunset.png" alt="">{{ getFormattedTime(weatherData.sys.sunset) }}
+
+        <p class="detail-img">
+            <img [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
+                alt="Wetter-Icon">
+            {{ weatherData.weather[0].description | titlecase }}
         </p>
+
+        <p>
+            <img class="details-icon" src="/assets/icon/wind.png" alt="">
+            {{ weatherData.wind.speed }} m/s
+        </p>
+
+        <p>
+            <img class="details-icon" src="/assets/icon/sunrise.png" alt="">
+            {{ getFormattedTime(weatherData.sys.sunrise)}}
+        </p>
+
+        <p>
+            <img class="details-icon" src="/assets/icon/sunset.png" alt="">
+            {{ getFormattedTime(weatherData.sys.sunset) }}
+        </p>
+
     </div>
-
-
-
-
     }
 
     @if (!weatherData) {
@@ -46,6 +49,5 @@
         Lade Wetterdaten...
     </div>
     }
-
 
 </section>

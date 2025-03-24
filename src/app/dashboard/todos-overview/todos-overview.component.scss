@@ -12,44 +12,31 @@
     cursor: pointer;
     transition: all ease-in-out 100ms;
     max-height: 380px;
-    // overflow: auto;
-
-    // &:hover {
-    //     scale: 1.03;
-    // }
 }
 
 .overview-header {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    top: 0;
+    @include absolute($top: 0);
+    @include flex($justify: space-between);
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-
 }
-
 
 .overview-todos-container {
     margin: 65px 20px 10px 20px;
     height: 285px;
     overflow: auto;
-
 }
 
 .todos-list-conatiner {
-    display: flex;
-    flex-direction: column;
+    @include flex($direction: column);
     gap: 15px;
     padding: 0;
     padding: 15px;
 }
 
 .todos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex($justify: space-between, $align: center);
     border-radius: 10px;
     padding: 10px;
     list-style-type: none;
@@ -57,12 +44,11 @@
     cursor: pointer;
 
     &:hover {
-        // scale: 1.02;
         background-color: rgb(141, 190, 252);
     }
 }
 
-.checked-img{
+.checked-img {
     width: 40px;
     height: 40px;
 }

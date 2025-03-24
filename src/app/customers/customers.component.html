@@ -13,6 +13,7 @@
 <section>
 
     <mat-card appearance="outlined">
+
         <table class="user-table">
             <tr [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
                 <th>Name</th>
@@ -27,8 +28,8 @@
                 <td>{{cust.city}}</td>
             </tr>
             }
-
         </table>
+
     </mat-card>
 
     <button (click)="openDialog()" class="add-user-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">

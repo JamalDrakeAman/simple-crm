@@ -1,7 +1,12 @@
 <section [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'" routerLink="/calendar">
-    <div  class="date-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"> <span>{{dateParts.month}}</span> <span>{{dateParts.year}}</span> </div>
+
+    <div class="date-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+        <span>{{dateParts.month}}</span>
+        <span>{{dateParts.year}}</span>
+    </div>
 
     <p class="date-day">{{dateParts.day}}</p>
 
     <span class="date-footer">{{dateParts.weekday}}</span>
+    
 </section>

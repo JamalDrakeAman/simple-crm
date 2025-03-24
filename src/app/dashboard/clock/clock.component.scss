@@ -1,4 +1,6 @@
 @import './../../shared/scss/mixins.scss';
+@import './../../shared/scss/theme.scss';
+
 
 .clock-container {
     position: relative;
@@ -9,43 +11,26 @@
     overflow: hidden;
     cursor: pointer;
     transition: all ease-in-out 100ms;
-    &:hover{
+
+    &:hover {
         scale: 1.03;
     }
 }
 
-.clock-header{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 0;
+.clock-header {
+    @include absolute($top: 0);
+    @include flex($justify: center);
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
 }
 
-.clock-footer{
-    position: absolute;
-    bottom: 0;
+.clock-footer {
+    @include absolute($bottom: 0);
     padding: 20px;
 }
 
 .clockTime {
-    position: absolute;
-    top: 50%;
+    @include absolute($top: 50%);
     font-size: 70px;
-}
-
-.dark-mode {
-    background-color: rgba(23, 30, 61, 0.5);
-    &:hover {
-        background-color: rgba(23, 30, 61, 0.8);
-    }
-}
-
-.light-mode {
-    background-color: rgba(141, 190, 252, 0.5);
-    &:hover {
-        background-color: rgba(141, 190, 252, 0.8);
-    }
 }

@@ -17,32 +17,21 @@
 }
 
 .overview-header {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    top: 0;
+    @include absolute($top: 0);
+    @include flex($justify: space-between);
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
 }
 
 .overview-notes-container {
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    align-items: center;
-    // border: solid 1px;
+    @include flex($direction: column, $align: center);
     margin: 65px 20px 10px 20px;
     height: 285px;
     overflow: auto;
 }
 
-.note-title{
+.note-title {
     font-size: 24px;
     margin-bottom: 15px;
-    // text-align: center;
 }
-
-// .note-description{
-
-// }

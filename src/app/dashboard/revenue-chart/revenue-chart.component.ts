@@ -21,16 +21,19 @@ Chart.register(
   styleUrl: './revenue-chart.component.scss',
 })
 export class RevenueChartComponent implements AfterViewInit {
+
   @ViewChild('revenueChart') revenueChart!: ElementRef<HTMLCanvasElement>;
 
   theme = inject(ThemeService);
 
   constructor() { }
 
+
   ngAfterViewInit(): void {
     this.createChart();
   }
 
+  
   createChart(): void {
     const ctx = this.revenueChart.nativeElement.getContext('2d');
     if (!ctx) return;

@@ -30,15 +30,13 @@ import { onSnapshot } from '@firebase/firestore';
 export class NotesComponent implements OnInit {
 
   theme = inject(ThemeService);
-
   noteData = inject(FirestoreServiceService);
-
   notes: Note[] = [];
-
-  constructor(public dialog: MatDialog) { }
 
   private unsubscribe!: () => void;
 
+  constructor(public dialog: MatDialog) { }
+  
 
   ngOnInit(): void {
     this.unsubscribe = onSnapshot(this.noteData.notesCollection, (snapshot) => {
@@ -51,8 +49,8 @@ export class NotesComponent implements OnInit {
     });
   }
 
+
   ngOnDestroy(): void {
-    // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {
       this.unsubscribe();
     }

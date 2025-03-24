@@ -4,8 +4,7 @@
 
 
 .note-box {
-    display: flex;
-    flex-direction: column;
+    @include flex($direction: column);
     position: relative;
     height: 550px;
     border-radius: 20px;
@@ -20,12 +19,9 @@
     cursor: pointer;
 }
 
-.note-title{
+.note-title {
     margin: 0 auto 20px;
     font-size: 30px;
     font-family: 'Poppins';
     font-weight: bold;
 }
-
-
-

@@ -64,7 +64,6 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-    // Beende das Abonnement, wenn die Komponente zerstört wird
     if (this.unsubscribe) {
       this.unsubscribe();
     }
@@ -75,6 +74,7 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
     task.completed = !task.completed;
     this.writeTaskData(i);
   }
+
 
   async writeTaskData(i: number) {
     const db = this.todosData.db

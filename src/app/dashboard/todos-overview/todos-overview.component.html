@@ -9,6 +9,7 @@
 
         @if (filteredTasks.length > 0) {
         <ul class="todos-list-conatiner">
+
             @for (task of filteredTasks; track task.id; let i = $index) {
             <li class="todos">
                 <span>{{ task.title }} </span>
@@ -19,6 +20,7 @@
                 </span>
             </li>
             }
+
         </ul>
         } @else {
         <p>Keine Todos für heute.</p>

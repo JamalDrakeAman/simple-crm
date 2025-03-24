@@ -1,37 +1,20 @@
 @import './../shared/scss/keyframes.scss';
 @import './../shared/scss/mixins.scss';
+@import './../shared/scss/theme.scss';
 
 
-section{
+section {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .add-user-btn {
-    position: absolute;
-    right: 56px;
-    bottom: 56px;
+    @include absolute($right: 56px, $bottom: 56px);
 }
 
 mat-card {
     background-color: unset;
     overflow: hidden;
     border: unset;
-}
-
-.dark-mode {
-    background-color: rgba(23, 30, 61, 0.5);
-
-    &:hover {
-        background-color: rgba(23, 30, 61, 0.8);
-    }
-}
-
-.light-mode {
-    background-color: rgba(141, 190, 252, 0.5);
-
-    &:hover {
-        background-color: rgba(141, 190, 252, 0.8);
-    }
 }
 
 .user-table {

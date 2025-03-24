@@ -1,6 +1,8 @@
-<mat-card  appearance="outlined" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+<mat-card appearance="outlined" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+
     <div class="overview-card-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">{{title}}</div>
     <mat-card-content class="countNumber">
         {{count}}
     </mat-card-content>
+
 </mat-card>

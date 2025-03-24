@@ -4,24 +4,16 @@
 
 
 section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    flex-wrap: wrap;
-    gap: 20px;
+    @include grid-layout($columns: 1fr 1fr, $gap: 20px);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
-
-
 .search-notes-container {
+    @include flex($direction: column-reverse, $align: center);
     width: 50%;
     height: fit-content;
     gap: 20px;
-    border: 2px solid;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+    border: 1px solid;
     border-radius: 20px;
     overflow: hidden;
     margin: 0 auto 40px;
@@ -43,13 +35,6 @@ section {
 
 }
 
-
 .add-note-btn {
-    // position: absolute;
-    // right: 56px;
-    // bottom: 56px;
     color: whitesmoke;
 }
-
-
-

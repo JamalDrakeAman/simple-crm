@@ -24,7 +24,6 @@
 
 
   <div class="users-overview-row">
-    <!-- <h1>Total Users</h1> -->
     <app-user-overwiew-card routerLink="/user" [title]="'Users'" [count]="users.length"></app-user-overwiew-card>
     <app-user-overwiew-card routerLink="/customers" [title]="'Customers'"
       [count]="customer.length"></app-user-overwiew-card>
@@ -33,18 +32,13 @@
 
 
   <div class="chart-overview-row">
-
     <app-revenue-chart></app-revenue-chart>
-
   </div>
 
 
   <div class="todos-notes-overview-row">
-
     <app-todos-overview></app-todos-overview>
-
     <app-notes-overview></app-notes-overview>
-
   </div>
 
 </section>

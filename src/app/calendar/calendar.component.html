@@ -19,12 +19,8 @@
 </div>
 
 
-
 <section>
-
     @for (dayInfo of calendar.daysInMonth; track $index) {
         <app-day-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index" [isToday]="dayInfo.isToday"></app-day-grid>
         }
-
-
 </section>

@@ -17,13 +17,10 @@ import { FormsModule } from '@angular/forms';
 export class AddNoteDialogComponent {
 
   noteData = inject(FirestoreServiceService);
-
   note = new Note();
   loading = false;
 
-
   constructor(public dialogRef: MatDialogRef<AddNoteDialogComponent>) { }
-
 
 
   async saveNote() {

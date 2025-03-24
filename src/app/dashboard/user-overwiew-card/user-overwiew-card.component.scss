@@ -1,8 +1,10 @@
+@import './../../shared/scss/mixins.scss';
+@import './../../shared/scss/keyframes.scss';
+@import './../../shared/scss/theme.scss';
+
 mat-card {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex($justify: center, $align: center);
     cursor: pointer;
     transition: all ease-in-out 100ms;
     border: none;
@@ -10,41 +12,21 @@ mat-card {
     height: 100%;
     width: 100%;
     overflow: hidden;
+
     &:hover {
         scale: 1.03;
     }
 }
 
-
 .countNumber {
-    position: absolute;
-    top: 50%;
+    @include absolute($top: 50%);
     font-size: 70px;
 }
 
-
 .overview-card-header {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 0;
+    @include absolute($top: 0);
+    @include flex($justify: center);
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-}
-
-
-.dark-mode {
-    background-color: rgba(23, 30, 61, 0.5);
-    &:hover {
-        background-color: rgba(23, 30, 61, 0.8);
-    }
-}
-
-
-.light-mode {
-    background-color: rgba(141, 190, 252, 0.5);
-    &:hover {
-        background-color: rgba(141, 190, 252, 0.8);
-    }
 }

@@ -1,11 +1,12 @@
 <div class="clock-container" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
 
   <div class="clock-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">Time</div>
+
   <div class="clockTime">
     <span class="hour">{{hour}}</span>
     <span class="minute">:{{minute}}</span>
-    <!-- <span class="second">:{{second}}</span> -->
   </div>
 
   <span class="clock-footer">{{second}}</span>
+
 </div>

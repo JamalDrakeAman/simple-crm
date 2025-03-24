@@ -1,8 +1,12 @@
-<section  [ngClass]="{
+<section [ngClass]="{
     'dark-mode': theme.darkMode(),
     'light-mode': !theme.darkMode(),
     'today': isToday
   }">
-    <div class="day-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'"><span> {{index + 1}}</span> <span>{{dayName}}</span></div>
+
+  <div class="day-header" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+    <span> {{index + 1}}</span>
+    <span>{{dayName}}</span>
+  </div>
 
 </section>

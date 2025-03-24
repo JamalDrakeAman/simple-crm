@@ -11,8 +11,12 @@
         <ul class="todos-list-conatiner">
             @for (task of filteredTasks; track task.id; let i = $index) {
             <li class="todos">
-                <span>{{ task.title }} </span> <span><img class="checked-img" [src]="task.completed ? '/assets/icon/checkbox-on.svg' : '/assets/icon/checkbox-off.svg'"
-                    alt="" (click)="toggleTaskCompletion(task, i)"></span>
+                <span>{{ task.title }} </span>
+                <span>
+                    <img class="checked-img"
+                        [src]="task.completed ? '/assets/icon/checkbox-on.svg' : '/assets/icon/checkbox-off.svg'" alt=""
+                        (click)="toggleTaskCompletion(task, i)">
+                </span>
             </li>
             }
         </ul>
@@ -23,5 +27,3 @@
     </div>
 
 </div>
-
-<!-- - {{ task.timestamp | date: 'short' }} -->

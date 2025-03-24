@@ -1,6 +1,12 @@
+@import './../../shared/scss/keyframes.scss';
+@import './../../shared/scss/mixins.scss';
+@import './../../shared/scss/theme.scss';
+
 .chart-container{
   height: 100%;
   width: 100%;
+  // background-color: rgba(23, 30, 61, 0.5);
+  border-radius: 15px;
 }
 
 canvas {

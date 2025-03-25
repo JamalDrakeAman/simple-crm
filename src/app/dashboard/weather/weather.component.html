@@ -21,22 +21,22 @@
     <div class="weather-details">
 
         <p class="detail-img">
-            <img [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
+            <img  [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
                 alt="Wetter-Icon">
             {{ weatherData.weather[0].description | titlecase }}
         </p>
 
-        <p>
+        <p class="detail">
             <img class="details-icon" src="/assets/icon/wind.png" alt="">
             {{ weatherData.wind.speed }} m/s
         </p>
 
-        <p>
+        <p class="detail">
             <img class="details-icon" src="/assets/icon/sunrise.png" alt="">
             {{ getFormattedTime(weatherData.sys.sunrise)}}
         </p>
 
-        <p>
+        <p class="detail">
             <img class="details-icon" src="/assets/icon/sunset.png" alt="">
             {{ getFormattedTime(weatherData.sys.sunset) }}
         </p>

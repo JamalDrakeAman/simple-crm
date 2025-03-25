@@ -1,26 +1,37 @@
-<div class="headline">
-    <!-- Calendar -->
-    <span>C</span>
-    <span>a</span>
-    <span>l</span>
-    <span>e</span>
-    <span>n</span>
-    <span>d</span>
-    <span>a</span>
-    <span>r</span>
-
-</div>
+<section class="wrapper-center">
 
 
-<div class="header" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
-    <button (click)="calendar.changeMonth(-1)">‹</button>
-    <div>{{ calendar.getMonthName() }} {{ calendar.getYear() }}</div>
-    <button (click)="calendar.changeMonth(1)">›</button>
-</div>
 
 
-<section>
-    @for (dayInfo of calendar.daysInMonth; track $index) {
-        <app-day-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index" [isToday]="dayInfo.isToday"></app-day-grid>
-        }
+    <section class="container">
+
+        <div class="headline">
+            <span>C</span>
+            <span>a</span>
+            <span>l</span>
+            <span>e</span>
+            <span>n</span>
+            <span>d</span>
+            <span>a</span>
+            <span>r</span>
+
+        </div>
+
+
+        <div class="header" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
+            <button (click)="calendar.changeMonth(-1)">‹</button>
+            <div>{{ calendar.getMonthName() }} {{ calendar.getYear() }}</div>
+            <button (click)="calendar.changeMonth(1)">›</button>
+        </div>
+
+
+        <section>
+            @for (dayInfo of calendar.daysInMonth; track $index) {
+            <app-day-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index"
+                [isToday]="dayInfo.isToday"></app-day-grid>
+            }
+        </section>
+
+    </section>
+
 </section>

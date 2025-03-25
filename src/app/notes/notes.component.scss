@@ -3,6 +3,18 @@
 @import './../shared/scss/theme.scss';
 
 
+.wrapper-center {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    width: 100%;
+}
+
 section {
     @include grid-layout($columns: 1fr 1fr, $gap: 20px);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);

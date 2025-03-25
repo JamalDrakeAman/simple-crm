@@ -2,9 +2,16 @@
 @import './../shared/scss/keyframes.scss';
 
 
-section {
+.wrapper-center {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.container {
     @include flex($direction: column, $justify: center);
     width: 100%;
+    max-width: 1440px;
     height: 100%;
     gap: 20px;
     color: whitesmoke;
@@ -18,7 +25,28 @@ section {
     padding: 30px;
     border-radius: 20px;
     @include slideInAnimation(0.2s);
+
+    // @media (max-width: 1300px) {
+    //     grid-template-columns: 1fr 1fr;
+    //     grid-template-areas: "weather weather";
+    //     height: 500px;
+
+    //     .weather-box {
+    //         grid-column: 1 / -1; // Spannt über alle Spalten
+    //     }
+    // }
+
+    @include respond-to('desktop'){
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "weather weather";
+        height: 500px;
+
+        .weather-box {
+            grid-column: 1 / -1; // Spannt über alle Spalten
+        }
+    }
 }
+
 
 .users-overview-row {
     @include grid-layout(1fr 1fr 1fr, 20px);
@@ -29,7 +57,7 @@ section {
     @include slideInAnimation(0.4s);
 }
 
-.chart-overview-row{
+.chart-overview-row {
     height: 250px;
     border: solid 5px rgba(255, 255, 255, 0.1);
     padding: 30px;
@@ -45,4 +73,3 @@ section {
     border-radius: 20px;
     @include slideInAnimation(0.6s);
 }
-

@@ -2,9 +2,15 @@
 @import './../shared/scss/mixins.scss';
 @import './../shared/scss/theme.scss';
 
+.wrapper-center{
+    display: flex;
+    justify-content: center;
+}
 
-section {
+.container {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 1440px;
+    width: 100%;
 }
 
 .add-user-btn {

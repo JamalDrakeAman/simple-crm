@@ -29,11 +29,24 @@ section {
 .temp {
     @include absolute($top: 50%);
     font-size: 70px;
+
+    @include respond-to('l-desktop') {
+     font-size: 54px;
+    }
 }
 
 .detail-img {
     @include flex($direction: column, $align: center);
+
+    img {
+        width: 70px;
+    }
 }
+
+.detail {
+    @include flex($direction: column, $align: center);
+}
+
 
 .weather-details {
     @include absolute($bottom: 0);
@@ -45,7 +58,14 @@ section {
     p {
         margin: 0;
     }
+
+    @include respond-to('l-desktop') {
+        p {
+            font-size: 14px;
+        }
+    }
 }
+
 
 .details-icon {
     width: 30px;

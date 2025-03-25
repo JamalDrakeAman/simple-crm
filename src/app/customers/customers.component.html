@@ -1,39 +1,42 @@
-<div class="headline">
-    <span>C</span>
-    <span>u</span>
-    <span>s</span>
-    <span>t</span>
-    <span>o</span>
-    <span>m</span>
-    <span>e</span>
-    <span>r</span>
-    <span>s</span>
-</div>
+<section class="wrapper-center">
 
-<section>
+    <section class="container">
+        <div class="headline">
+            <span>C</span>
+            <span>u</span>
+            <span>s</span>
+            <span>t</span>
+            <span>o</span>
+            <span>m</span>
+            <span>e</span>
+            <span>r</span>
+            <span>s</span>
+        </div>
 
-    <mat-card appearance="outlined">
+        <mat-card appearance="outlined">
 
-        <table class="user-table">
-            <tr [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
-                <th>Name</th>
-                <th>Email</th>
-                <th>City</th>
-            </tr>
+            <table class="user-table">
+                <tr [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                </tr>
 
-            @for (cust of customers; track $index) {
-            <tr [routerLink]="['/user/' + cust.id]" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
-                <td>{{cust.firstName}} {{cust.lastName}}</td>
-                <td>{{cust.email}}</td>
-                <td>{{cust.city}}</td>
-            </tr>
-            }
-        </table>
+                @for (cust of customers; track $index) {
+                <tr [routerLink]="['/user/' + cust.id]" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">
+                    <td>{{cust.firstName}} {{cust.lastName}}</td>
+                    <td>{{cust.email}}</td>
+                    <td>{{cust.city}}</td>
+                </tr>
+                }
+            </table>
 
-    </mat-card>
+        </mat-card>
 
-    <button (click)="openDialog()" class="add-user-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
-        <mat-icon>add</mat-icon>
-    </button>
+        <button (click)="openDialog()" class="add-user-btn" mat-fab matTooltip="Add user" matTooltipPosition="above">
+            <mat-icon>add</mat-icon>
+        </button>
+
+    </section>
 
 </section>

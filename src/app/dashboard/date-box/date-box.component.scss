@@ -28,9 +28,17 @@ section {
 .date-day {
     @include absolute($top: 50%);
     font-size: 70px;
+
+    @include respond-to('l-desktop') {
+        font-size: 54px;
+    }
 }
 
 .date-footer {
     @include absolute($bottom: 0);
     padding: 20px;
+
+    @include respond-to('l-desktop') {
+        font-size: 14px;
+    }
 }

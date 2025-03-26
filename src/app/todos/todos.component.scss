@@ -2,10 +2,20 @@
 @import './../shared/scss/mixins.scss';
 @import './../shared/scss/theme.scss';
 
+.wrapper-center{
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+}
+
 section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 15px;
     color: whitesmoke;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -24,7 +34,7 @@ section {
     @include slideInAnimation(0.2s);
     color: whitesmoke;
 
-    button{
+    button {
         width: 20%;
         height: 100%;
         border-radius: 20px;
@@ -45,13 +55,11 @@ section {
     display: flex;
     width: 100%;
     height: 150px;
-    // border: solid;
     margin-bottom: 20px;
     border-radius: 20px;
     padding: 15px;
-    overflow: scroll;
+    overflow-x: scroll;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    // background-color: rgba(141, 190, 252, 0.3);
     @include slideInAnimation(0.3s);
 }
 

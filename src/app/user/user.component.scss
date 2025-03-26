@@ -1,9 +1,15 @@
 @import './../shared/scss/keyframes.scss';
 @import './../shared/scss/mixins.scss';
 
+.wrapper-center {
+    display: flex;
+    justify-content: center;
+}
 
-section {
+.container {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1440px;
 }
 
 .add-user-btn {

@@ -11,6 +11,7 @@ section {
     overflow: hidden;
     cursor: pointer;
     transition: all ease-in-out 100ms;
+    min-width: 142px;
 
     &:hover {
         scale: 1.03;

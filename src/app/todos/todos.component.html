@@ -10,35 +10,44 @@
   <span>t</span>
 </div>
 
+<section class="wrapper-center">
 
-<div class="month-display-container" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
-  <button (click)="calendar.changeMonth(-1)" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">previous</button>
-  <p>{{calendar.getMonthName()}}</p>
-  <button (click)="calendar.changeMonth(1)" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">next</button>
-</div>
+  <div class="container">
 
-
-<div class="todos-day-container" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
-  <nav class="todo-day-nav">
-    @for (dayInfo of calendar.daysInMonth; track $index) {
-    <app-date-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index" [isToday]="dayInfo.isToday"
-      [isSelected]="isSelectedDay(dayInfo.day)" (daySelected)="selectDayFromGrid(dayInfo.day)">
-    </app-date-grid>
-    }
-  </nav>
-</div>
+    <div class="month-display-container" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
+      <button (click)="calendar.changeMonth(-1)"
+        [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">previous</button>
+      <p>{{calendar.getMonthName()}}</p>
+      <button (click)="calendar.changeMonth(1)" [ngClass]="theme.darkMode() ? 'dark-mode' : 'light-mode'">next</button>
+    </div>
 
 
-<section>
+    <div class="todos-day-container" [ngClass]="theme.darkMode() ? 'dark' : 'light'">
+      <nav class="todo-day-nav">
+        @for (dayInfo of calendar.daysInMonth; track $index) {
+        <app-date-grid [dayNumber]="dayInfo.day" [dayName]="dayInfo.dayName" [index]="$index"
+          [isToday]="dayInfo.isToday" [isSelected]="isSelectedDay(dayInfo.day)"
+          (daySelected)="selectDayFromGrid(dayInfo.day)">
+        </app-date-grid>
+        }
+      </nav>
+    </div>
 
-  @if (selectedDay !== null) {
-  @for (task of filteredTasks; track task.id) { <!-- Hier filteredTasks verwenden -->
-  <app-todo-task [task]="task"></app-todo-task>
-  }
-  }
 
-  <button (click)="openDialog()" class="add-task-btn" mat-fab matTooltip="Add todo" matTooltipPosition="above">
-    <mat-icon>add</mat-icon>
-  </button>
+    <section>
+
+      @if (selectedDay !== null) {
+      @for (task of filteredTasks; track task.id) {
+      <app-todo-task [task]="task"></app-todo-task>
+      }
+      }
+
+      <button (click)="openDialog()" class="add-task-btn" mat-fab matTooltip="Add todo" matTooltipPosition="above">
+        <mat-icon>add</mat-icon>
+      </button>
+
+    </section>
+
+  </div>
 
 </section>

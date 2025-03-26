@@ -12,6 +12,7 @@ section {
     cursor: pointer;
     transition: all ease-in-out 100ms;
     overflow: hidden;
+    min-width: 289px;
 
     &:hover {
         scale: 1.03;
@@ -31,15 +32,25 @@ section {
     font-size: 70px;
 
     @include respond-to('l-desktop') {
-     font-size: 54px;
+        font-size: 54px;
+    }
+
+    @include respond-to('phone-landscape') {
+        font-size: 44px;
     }
 }
 
 .detail-img {
     @include flex($direction: column, $align: center);
+    width: fit-content;
+    text-align: center;
 
     img {
         width: 70px;
+
+        @include respond-to('phone-landscape') {
+            width: 50px;
+        }
     }
 }
 

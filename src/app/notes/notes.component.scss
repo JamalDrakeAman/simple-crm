@@ -18,6 +18,14 @@
 section {
     @include grid-layout($columns: 1fr 1fr, $gap: 20px);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    @include respond-to('l-desktop') {
+        gap: 10px;
+    }
+
+    @include respond-to('phone-landscape') {
+        @include grid-layout($columns: 1fr, $gap: 10px);
+    }
 }
 
 .search-notes-container {

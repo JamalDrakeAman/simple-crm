@@ -26,24 +26,24 @@
     border-radius: 20px;
     @include slideInAnimation(0.2s);
 
-    // @media (max-width: 1300px) {
-    //     grid-template-columns: 1fr 1fr;
-    //     grid-template-areas: "weather weather";
-    //     height: 500px;
-
-    //     .weather-box {
-    //         grid-column: 1 / -1; // Spannt über alle Spalten
-    //     }
-    // }
-
     @include respond-to('desktop'){
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "weather weather";
         height: 500px;
 
         .weather-box {
-            grid-column: 1 / -1; // Spannt über alle Spalten
+            grid-column: 1 / -1; 
         }
+    }
+
+
+    @include respond-to('tablet'){
+        padding: 20px;
+    }
+
+    @include respond-to('phone-landscape'){
+        padding: 10px;
+        gap: 10px;
     }
 }
 
@@ -55,7 +55,28 @@
     padding: 30px;
     border-radius: 20px;
     @include slideInAnimation(0.4s);
+
+    @include respond-to('desktop'){
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "weather weather";
+        height: 500px;
+
+        .total-box {
+            grid-column: 1 / -1; 
+        }
+    }
+
+
+    @include respond-to('tablet'){
+        padding: 20px;
+    }
+
+    @include respond-to('phone-landscape'){
+        padding: 10px;
+        gap: 10px;
+    }
 }
+
 
 .chart-overview-row {
     height: 250px;
@@ -63,7 +84,17 @@
     padding: 30px;
     border-radius: 20px;
     @include slideInAnimation(0.6s);
+
+
+    @include respond-to('tablet'){
+        padding: 20px;
+    }
+
+    @include respond-to('phone-landscape'){
+        padding: 10px;
+    }
 }
+
 
 .todos-notes-overview-row {
     @include grid-layout(1fr 1fr, 20px);
@@ -72,4 +103,18 @@
     padding: 30px;
     border-radius: 20px;
     @include slideInAnimation(0.6s);
+
+
+    @include respond-to('desktop'){
+        grid-template-columns: 1fr;
+    }
+
+    @include respond-to('tablet'){
+        padding: 20px;
+    }
+
+    @include respond-to('phone-landscape'){
+        padding: 10px;
+        gap: 10px;
+    }
 }

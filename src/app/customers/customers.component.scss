@@ -2,7 +2,7 @@
 @import './../shared/scss/mixins.scss';
 @import './../shared/scss/theme.scss';
 
-.wrapper-center{
+.wrapper-center {
     display: flex;
     justify-content: center;
 }
@@ -31,11 +31,21 @@ mat-card {
     color: whitesmoke;
     @include slideInAnimation(0.2s);
 
+    @include respond-to('desktop') {
+        display: flex;
+        flex-direction: column;
+    }
+
     th {
         color: rgba(0, 0, 0, 0.4);
         font-size: 14px;
         font-weight: 500;
         text-align: start;
+
+        @include respond-to('desktop') {
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     tr {
@@ -62,11 +72,23 @@ mat-card {
                 padding-left: 16px;
             }
 
+            @include respond-to('desktop') {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
         }
 
         th {
             &:first-child {
                 padding-left: 16px;
+            }
+
+            @include respond-to('desktop') {
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
 

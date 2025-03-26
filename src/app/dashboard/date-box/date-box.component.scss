@@ -32,6 +32,10 @@ section {
     @include respond-to('l-desktop') {
         font-size: 54px;
     }
+
+    @include respond-to('phone-landscape') {
+        font-size: 44px;
+    }
 }
 
 .date-footer {

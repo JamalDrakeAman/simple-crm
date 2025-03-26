@@ -18,7 +18,20 @@ section {
   @include grid-layout($columns: 1fr 1fr 1fr 1fr, $gap: 20px);
   width: 100%;
   height: 100%;
+
+  @include respond-to('l-desktop') {
+    @include grid-layout($columns: 1fr 1fr 1fr , $gap: 20px);
+  }
+
+  @include respond-to('desktop') {
+    @include grid-layout($columns: 1fr 1fr , $gap: 10px);
+  }
+
+  @include respond-to('phone') {
+    @include grid-layout($columns: 1fr , $gap: 7px);
+  }
 }
+
 
 .header {
   @include flex($align: center, $justify: space-between);

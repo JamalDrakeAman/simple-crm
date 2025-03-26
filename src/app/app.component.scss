@@ -35,14 +35,15 @@ mat-toolbar {
 }
 
 .sidenav {
-    // box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
-    // box-shadow: 4px 0px 10px rgba(141, 190, 252, 0.08);
     background-color: rgba(23, 30, 61, 0.4);
     display: flex;
     width: 300px;
-    // background-color: unset;
     color: whitesmoke;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    @include respond-to('tablet') {
+        width: 250px;
+    }
 }
 
 .sidebar-darkMode {
@@ -112,6 +113,21 @@ mat-toolbar-row {
     padding-left: 56px;
     padding-right: 56px;
     padding-top: 16px;
+
+    @include respond-to('desktop') {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @include respond-to('tablet') {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    @include respond-to('phone-landscape') {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }
 
 .legals {
@@ -139,7 +155,7 @@ li.active {
     background-color: #171e3d;
     border-radius: 20px;
 
-    &:hover{
+    &:hover {
         background-color: #171e3d;
     }
 }

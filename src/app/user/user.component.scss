@@ -1,5 +1,6 @@
 @import './../shared/scss/keyframes.scss';
 @import './../shared/scss/mixins.scss';
+@import './../shared/scss/theme.scss';
 
 .wrapper-center {
     display: flex;
@@ -22,23 +23,6 @@ mat-card {
     background-color: unset;
     overflow: hidden;
     border: unset;
-}
-
-
-.dark-mode {
-    background-color: rgba(23, 30, 61, 0.5);
-
-    &:hover {
-        background-color: rgba(23, 30, 61, 0.8);
-    }
-}
-
-.light-mode {
-    background-color: rgba(141, 190, 252, 0.5);
-
-    &:hover {
-        background-color: rgba(141, 190, 252, 0.8);
-    }
 }
 
 .user-table {

@@ -26,8 +26,8 @@
 
 
     <div class="users-overview-row">
-      <app-user-overwiew-card routerLink="/user" [title]="'Users'" [count]="users.length"></app-user-overwiew-card>
-      <app-user-overwiew-card routerLink="/customers" [title]="'Customers'"
+      <app-user-overwiew-card class="users-box" routerLink="/user" [title]="'Users'" [count]="users.length"></app-user-overwiew-card>
+      <app-user-overwiew-card class="customers-box" routerLink="/customers" [title]="'Customers'"
         [count]="customer.length"></app-user-overwiew-card>
       <app-user-overwiew-card class="total-box" [title]="'Total'" [count]="users.length + customer.length"></app-user-overwiew-card>
     </div>

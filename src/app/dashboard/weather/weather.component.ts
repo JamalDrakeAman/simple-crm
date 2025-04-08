@@ -32,7 +32,6 @@ export class WeatherComponent implements OnInit {
       (data) => {
         this.weatherData = data;
         console.log('Wetter Daten',this.weatherData);
-        
       },
       (error) => {
         console.error('Fehler beim Abrufen der Wetterdaten:', error);

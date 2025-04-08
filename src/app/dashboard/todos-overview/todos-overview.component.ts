@@ -23,7 +23,7 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
   todosData = inject(FirestoreServiceService);
   theme = inject(ThemeService);
 
-  todoTasks: any[] = []; // Alle Todos
+  todoTasks: any[] = []; 
   filteredTasks: any[] = []; // Gefilterte Todos für den heutigen Tag
 
   private unsubscribe!: () => void;
@@ -33,9 +33,9 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
     this.unsubscribe = onSnapshot(this.todosData.todosCollection, (snapshot) => {
       this.todoTasks = snapshot.docs.map((doc) => {
         const data = doc.data() as TodoOverview;
-        data.id = doc.id; // Füge die Dokument-ID hinzu
+        data.id = doc.id; 
 
-        // Konvertiere das Timestamp-Objekt in ein Date-Objekt
+        
         if (data.timestamp instanceof Timestamp) {
           data.timestamp = data.timestamp.toDate();
         }
@@ -43,7 +43,6 @@ export class TodosOverviewComponent implements OnInit, OnDestroy {
         return data;
       });
 
-      // Filtere die Todos für den heutigen Tag
       this.filteredTasks = this.getTodosForToday();
       console.log('Gefilterte Tasks für heute:', this.filteredTasks); // Debugging
     });

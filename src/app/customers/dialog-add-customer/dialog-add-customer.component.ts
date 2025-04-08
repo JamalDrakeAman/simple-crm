@@ -13,8 +13,8 @@ import { Customer } from '../../../models/customer.class';
 import { FormsModule } from '@angular/forms';
 
 import { inject } from '@angular/core';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-import { FirestoreServiceService } from '../../shared/services/firestore-service.service'; 
+import { addDoc } from '@angular/fire/firestore';
+import { FirestoreServiceService } from '../../shared/services/firestore-service.service';
 
 @Component({
   selector: 'app-dialog-add-customer',
@@ -34,28 +34,28 @@ import { FirestoreServiceService } from '../../shared/services/firestore-service
 export class DialogAddCustomerComponent {
 
 
-    userData = inject(FirestoreServiceService);
-  
-    customer = new Customer();
-    birthDate: Date = new Date;
-    loading = false;
-  
-    constructor(public dialogRef: MatDialogRef<DialogAddCustomerComponent>) { }
-  
-    async saveUser() {
-      // Geburtsdatum in Timestamp umwandeln
-      this.customer.birthDate = this.birthDate.getTime();
-      console.log('Current user is', this.customer);
-  
-      this.loading = true;
-      try {
-        const docRef = await addDoc(this.userData.customersCollection, this.customer.toJSON());
-        console.log('User added with ID:', docRef.id);
-        this.dialogRef.close();
-      } catch (error) {
-        console.error('Error adding user:', error);
-      }
-  
-      this.loading = false;
+  userData = inject(FirestoreServiceService);
+
+  customer = new Customer();
+  birthDate: Date = new Date;
+  loading = false;
+
+  constructor(public dialogRef: MatDialogRef<DialogAddCustomerComponent>) { }
+
+  async saveUser() {
+    // Geburtsdatum in Timestamp umwandeln
+    this.customer.birthDate = this.birthDate.getTime();
+    console.log('Current user is', this.customer);
+
+    this.loading = true;
+    try {
+      const docRef = await addDoc(this.userData.customersCollection, this.customer.toJSON());
+      console.log('User added with ID:', docRef.id);
+      this.dialogRef.close();
+    } catch (error) {
+      console.error('Error adding user:', error);
     }
+
+    this.loading = false;
+  }
 }

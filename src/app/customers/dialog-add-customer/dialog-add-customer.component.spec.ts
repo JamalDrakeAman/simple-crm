@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogAddCustomerComponent } from './dialog-add-customer.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 describe('DialogAddCustomerComponent', () => {
   let component: DialogAddCustomerComponent;
@@ -8,9 +9,13 @@ describe('DialogAddCustomerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogAddCustomerComponent]
+      imports: [DialogAddCustomerComponent],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(DialogAddCustomerComponent);
     component = fixture.componentInstance;

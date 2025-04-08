@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { inject } from '@angular/core';
-import { Firestore, collectionData, collection, addDoc, getDoc, doc } from '@angular/fire/firestore';
+import { Firestore, collection } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -15,11 +15,8 @@ export class FirestoreServiceService {
   db = this.firestore
 
   usersCollection = collection(this.firestore, 'users');
-
   customersCollection = collection(this.firestore, 'customers');
-
   todosCollection = collection(this.firestore, 'todos');
-
   notesCollection = collection(this.firestore, 'notes');
 
 }

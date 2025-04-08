@@ -51,7 +51,6 @@ export class CustomersComponent implements OnInit {
         data.id = doc.id;
         return data;
       });
-      // console.log('Aktuelle Benutzer:', this.customers);
     });
   }
 

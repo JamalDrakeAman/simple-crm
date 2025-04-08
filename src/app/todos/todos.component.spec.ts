@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TodosComponent } from './todos.component';
+import { FirestoreServiceService } from '../shared/services/firestore-service.service';
+import { Firestore } from '@angular/fire/firestore';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
@@ -8,7 +9,11 @@ describe('TodosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodosComponent]
+      imports: [TodosComponent],
+      providers: [
+              FirestoreServiceService,
+              { provide: Firestore, useValue: {} } 
+            ]
     })
     .compileComponents();
 

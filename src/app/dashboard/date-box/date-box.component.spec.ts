@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DateBoxComponent } from './date-box.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('DateBoxComponent', () => {
   let component: DateBoxComponent;
@@ -8,7 +9,8 @@ describe('DateBoxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DateBoxComponent]
+      imports: [DateBoxComponent,ActivatedRoute],
+      providers: []
     })
     .compileComponents();
 

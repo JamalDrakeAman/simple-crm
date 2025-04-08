@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AddTaskDialogComponent } from './add-task-dialog.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { FirestoreServiceService } from '../../shared/services/firestore-service.service';
+import { Firestore } from '@angular/fire/firestore';
 
 describe('AddTaskDialogComponent', () => {
   let component: AddTaskDialogComponent;
@@ -8,9 +10,14 @@ describe('AddTaskDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddTaskDialogComponent]
+      imports: [AddTaskDialogComponent],
+      providers: [
+        FirestoreServiceService,
+        { provide: Firestore, useValue: {} },
+        MatDialogRef
+      ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AddTaskDialogComponent);
     component = fixture.componentInstance;
